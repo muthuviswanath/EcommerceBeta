@@ -3,15 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { FooterComponent } from './Components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductService } from './product.service';
 import {MatCardModule}from '@angular/material/card';
-import { ProductsComponent } from './products/products.component';
+import { LoginComponent } from './Components/pages/login/login.component';
+import { SignupComponent } from './Components/pages/signup/signup.component';
+import { ProductDetailsComponent } from './Components/pages/product-details/product-details.component';
+import { ProductsComponent } from './Components/Products/products.component';
+import { ProductService } from './Services/products/product.service';
 
 
 @NgModule({
