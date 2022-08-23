@@ -51,6 +51,7 @@ namespace EcommerceBetaAPI
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors(mycor => mycor.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseEndpoints(endpoints =>
             {
