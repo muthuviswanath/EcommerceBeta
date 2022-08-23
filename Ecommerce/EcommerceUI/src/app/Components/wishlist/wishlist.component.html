@@ -1,0 +1,14 @@
+<p>wishlist works!</p>
+
+<table>
+  <tr>
+    <th>Wishlist Id</th>
+    <th>User Id</th>
+    <th>Product Id</th>
+  </tr>
+  <tr *ngFor="let prod of wishlist">
+    <td>{{ prod.wishlistid }}</td>
+    <td>{{ prod.userid }}</td>
+    <td>{{ prod.productid }}</td>
+  </tr>
+</table>
