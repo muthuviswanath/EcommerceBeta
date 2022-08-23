@@ -4,8 +4,10 @@
     "\\Ecommerce",
     "\\Ecommerce\\EcommerceBetaAPI",
     "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI",
+    "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI\\bin",
     "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI\\Controllers",
     "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI\\Models"
   ],
+  "SelectedNode": "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI\\bin",
   "PreviewInSolutionExplorer": false
 }
