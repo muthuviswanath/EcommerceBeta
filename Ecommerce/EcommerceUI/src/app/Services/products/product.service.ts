@@ -1,5 +1,5 @@
-import { Injectable, OnInit } from '@angular/core';
-import{HttpClient} from '@angular/common/http';
+import { Injectable, OnInit, Type } from '@angular/core';
+import{HttpClient, HttpHeaders} from '@angular/common/http';
 import { map, Observable } from "rxjs";
 import {IProducts} from '../../Interface/IProducts';
 
@@ -18,9 +18,10 @@ export class ProductService implements OnInit {
           http
           .get<IProducts[]>(this.baseurl + "Products");
   }
-  postAllProducts():Observable<IProducts[]>{
-    return this.
-        http
-        .get<IProducts[]>(this.baseurl + "Products");
+  postAllProducts(data:any){
+    const httpoptions={
+      headers: new HttpHeaders({ 'Content-Type': 'application/jason; charset=utf-8' })
+    }
+      
 }
 }
