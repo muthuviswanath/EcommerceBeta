@@ -18,21 +18,21 @@
 						<h2>Sign Up</h2>
 					</div>
 					<div class="row">
-						<form control="" class="form-group" [formGroup]="signupForm" (ngSubmit)="signUp()">
+						<form control="" class="form-group"  >
 							<div class="row">
-								<input formControlName="username" type="text" name="username" id="username" class="form__input" placeholder="Username">
+								<input  type="text" name="username" id="username" class="form__input" placeholder="Username" [(ngModel)]="model.username">
 							</div>
 							<div class="row">
-								<input formControlName="password" type="password" name="password" id="password" class="form__input" placeholder="Password">
+								<input  type="password" name="password" id="password" class="form__input" placeholder="Password" [(ngModel)]="model.password">
 							</div>
                             <div class="row">
-								<input formControlName="email" type="email" name="email" id="email" class="form__input" placeholder="Email">
+								<input  type="email" name="email" id="email" class="form__input" placeholder="Email" [(ngModel)]="model.emailid">
 							</div>
 							<div class="row">
-                                <input formControlName="address" type="text" name="address" id="address" class="form__input" placeholder="Address">
+                                <input  type="text" name="address" id="address" class="form__input" placeholder="Address" [(ngModel)]="model.address">
 							</div>
 							<div class="row">
-								<input type="submit" value="Submit" class="btn">
+								<input type="submit" value="Submit" class="btn" (click)="signUp()">
 							</div>
 						</form>
 					</div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map } from 'rxjs';
-import { Iuser } from 'src/app/Iuser';
-import { UserService } from 'src/app/user.service';
+import { Iuser } from 'src/app/Interface/Iuser';
+import { UserService } from 'src/app/Services/user/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,11 +10,11 @@ import { UserService } from 'src/app/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  username: string = "Surabhi";
+  username: string = "";
   password: string = "";
 
 
-  userList: Iuser[];
+  userList?: Iuser[];
   constructor(private service: UserService) { }
 
   ngOnInit(): void {
@@ -30,9 +30,7 @@ export class LoginComponent implements OnInit {
     // console.log(this.userList.find(result => {
     //   result
     // }))
-    this.service.getUserByName(this.username).subscribe(users => {
-     // users.forEach()
-    });
+    
   }
 
 }
