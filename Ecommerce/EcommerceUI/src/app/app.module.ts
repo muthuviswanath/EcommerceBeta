@@ -1,3 +1,5 @@
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 import { WishlistService } from 'src/app/Services/wishlist/wishlist.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,6 +26,8 @@ import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.servi
     SignupComponent,
     ProductDetailsComponent,
     ProductsComponent,
+    ShoppingCartComponent,
+    WishlistComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatCardModule],
   providers: [ProductService, WishlistService, ShoppingCartService],
