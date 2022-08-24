@@ -1,5 +1,5 @@
+import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
-import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 import { WishlistService } from 'src/app/Services/wishlist/wishlist.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +16,7 @@ import { ProductDetailsComponent } from './Components/pages/product-details/prod
 import { ProductsComponent } from './Components/Products/products.component';
 import { ProductService } from './Services/products/product.service';
 import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.service';
+import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.servi
     SignupComponent,
     ProductDetailsComponent,
     ProductsComponent,
-    ShoppingCartComponent,
     WishlistComponent,
+    ShoppingCartContainerComponent,
+    ShoppingCartItemComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatCardModule],
   providers: [ProductService, WishlistService, ShoppingCartService],

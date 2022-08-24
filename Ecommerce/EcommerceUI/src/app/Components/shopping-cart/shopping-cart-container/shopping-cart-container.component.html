@@ -1,0 +1,80 @@
+<!-- <div class="container" style="padding-top: 6rem;" *ngIf="cart">
+  <div class="card shopping-cart">
+    <div class="card-header bg-dark text-light">
+      <i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>
+      Shopping cart
+      <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+      <app-shopping-cart-item *ngFor="let cartItem of cart" [product]="cartItem">
+
+      </app-shopping-cart-item>
+      <h2 class="display-4 text-center" *ngIf="cart.length === 0">
+        There is no item in cart
+      </h2>
+    </div>
+    <div class="card-footer">
+      <div class="pull-right" style="margin: 10px">
+        <div class="pull-right" style="margin: 5px">
+          Total price: <b>{{totalPrice | priceFormatter}}$</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="card text-center">
+  <div class="card-header">Shopping Cart</div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">
+      With supporting text below as a natural lead-in to additional content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">Total Price:</div>
+</div> -->
+
+<!-- <div style="background-color: grey; width: 80%; height: 15em">
+  <div style="background-color: black; height: 4em"></div>
+  <div class="div2">
+    <div class="div3">img</div>
+    <div class="div4">content</div>
+    <div class="div5">price</div>
+    <div class="div6">quantity</div>
+    <div class="div7">delete</div>
+  </div>
+</div> -->
+
+<div class="container" style="padding-top: 6rem">
+  <div class="card shopping-cart">
+    <div class="card-header bg-dark text-light">
+      <i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>
+      Shopping cart
+      <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+      <app-shopping-cart-item></app-shopping-cart-item>
+      <h2 class="display-4 text-center"></h2>
+    </div>
+    <div class="card-footer">
+      <div class="pull-right" style="margin: 10px">
+        <div class="pull-right" style="margin: 5px">Total price: 55000 INR</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <table [cellPadding]="5" [cellSpacing]="5">
+  <tr>
+    <th>Cart Id</th>
+    <th>User Id</th>
+    <th>Product Id</th>
+    <th>Cart Total</th>
+  </tr>
+  <tr *ngFor="let prod of shoppingCartList">
+    <td>{{ prod.cartid }}</td>
+    <td>{{ prod.userid }}</td>
+    <td>{{ prod.productid }}</td>
+    <td>{{ prod.carttotal }}</td>
+  </tr>
+</table> -->

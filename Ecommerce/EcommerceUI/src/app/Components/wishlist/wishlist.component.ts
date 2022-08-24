@@ -1,4 +1,4 @@
-import { IWishlist } from './IWishlist';
+import { IWishlist } from '../../Interface/IWishlist';
 import { Component, OnInit } from '@angular/core';
 import { WishlistService } from 'src/app/Services/wishlist/wishlist.service';
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IWishlist } from 'src/app/Components/wishlist/IWishlist';
+import { IWishlist } from 'src/app/Interface/IWishlist';
 
 @Injectable({
   providedIn: 'root',
