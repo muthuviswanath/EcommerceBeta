@@ -16,6 +16,7 @@ import { ProductDetailsComponent } from './Components/pages/product-details/prod
 import { ProductsComponent } from './Components/Products/products.component';
 import { ProductService } from './Services/products/product.service';
 import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,13 @@ import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.servi
     ShoppingCartComponent,
     WishlistComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatCardModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatCardModule,
+    NgbModule,
+  ],
   providers: [ProductService, WishlistService, ShoppingCartService],
   bootstrap: [AppComponent],
 })
