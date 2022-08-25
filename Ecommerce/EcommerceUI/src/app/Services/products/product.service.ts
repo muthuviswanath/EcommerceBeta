@@ -7,8 +7,15 @@ import {IProducts} from '../../Interface/IProducts';
   providedIn: 'root'
 })
 export class ProductService implements OnInit {
-
+  public data:any={}
+  
   constructor(private http:HttpClient){}
+  setOptions(option:any,value:any){
+    this.data[option]=value;
+  }
+  getOptions(){
+    return this.data;
+  }
   baseurl:string="http://localhost:5000/api/"
   ngOnInit(): void {
       
@@ -18,10 +25,26 @@ export class ProductService implements OnInit {
           http
           .get<IProducts[]>(this.baseurl + "Products");
   }
-  postAllProducts(data:any){
-    const httpoptions={
-      headers: new HttpHeaders({ 'Content-Type': 'application/jason; charset=utf-8' })
-    }
+  
+//   postAllProducts(data:any){
+//     const httpoptions={
+//       headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
+//     }
       
+// }
+public getProductById(productid:any){
+  
+  return this.http.get(`${this.baseurl}Products/${productid}`);
 }
+
+
+public addCart(data:any){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':'application/json; charset=utf-8'
+    })
+  };
+  return this.http.post(this.baseurl+"Carts",data,httpOptions);
+}
+
 }

@@ -1,48 +1,20 @@
-
-
+<p>Product works</p>
 <div class="products">
-  <div class="product" *ngFor="let prd of productList">
- 
-    <mat-card>
-    
-    <a href=""><img src={{prd.imagepath}} class="card-img-top"></a>
-    <h4>{{prd.productname}}</h4>
-    
-    <p>{{prd.quantity}}</p>
-    <p>{{prd.price}}</p>
-    <p>{{prd.productrating}}</p>
-    <p>{{prd.productofferprice}}</p>
-    <button class="btn btn-primary" >Add to cart</button>
-  </mat-card>
-  </div>
-  <div class="card hover">
-	<div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1493847242172-d46053a1f671?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f91dd5d50f16ba80af53a62d4caf2ce&auto=format&fit=crop&w=500&q=60);">
-		<div class="overlay">
-			<div class="overlay-content">
-				<a class="hover" href="#!">View Project</a>
-			</div>
-		</div>
-	</div>
+  <div class="product" *ngFor="let prd of productList;">
 	
-	<div class="card-content">
-		<a href="#!">
-			<h2>Title</h2>
-			<p>Lorem ipsum dolor sit amet consectetur, lorem ipsum dolor</p>
-		</a>
-	</div>
+		<div class="card">
+			 <input type="hidden" [(ngModel)]="model.productid">
+			 <input type=number [(ngModel)]="model.userid">
+			<a  (click)="getProduct()"><img src={{prd.imagepath}} class="card-img-top"></a>
+			<div class="card-body">
+			  <h5 class="card-title">{{prd.productname}}</h5>
+			  <p class="card-text">{{prd.productrating}}</p>
+			  <p class="card-text">{{prd.price|currency:'INR'}}</p>
+			  <p class="card-text">{{prd.productofferprice|currency:'INR'}}</p>
+			  <a href="#" class="btn btn-primary"(click)=submit()  >Add to cart</a>
+			</div>
+		  </div>
+  </div>
 </div>
 
-<div class="card">
-	<div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1491374812364-00028bbe7d2f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a22e4862c36c552e726815949fbcb41a&auto=format&fit=crop&w=500&q=60);">
-		<div class="overlay">
-			<div class="overlay-content">
-				<a href="#!">View Project</a>
-			</div>
-		</div>
-	</div>
-	
 
-
- 
-
-   
