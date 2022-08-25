@@ -9,10 +9,10 @@
               <a href="#"><i class="fa fa-user"></i> My Account</a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-heart"></i> Wishlist</a>
+              <a href="/wishlist"><i class="fa fa-heart"></i> Wishlist</a>
             </li>
             <li>
-              <a href="cart.html"><i class="fa fa-user"></i> My Cart</a>
+              <a href="/shopping-cart"><i class="fa fa-user"></i> My Cart</a>
             </li>
             <li>
               <a href="checkout.html"><i class="fa fa-user"></i> Checkout</a>
@@ -29,54 +29,54 @@
 
 <!-- End header area -->
 
-<div class="site-branding-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="logo">
-          <h1>
-            <a href="./"
-              ><img src="assets/images/kongsberglogo.png" height="10px"
-            /></a>
-          </h1>
-        </div>
-      </div>
+<header>
+  <h1 class="logo">
+    <img src="assets/images/applogo.png" height="20px" />
+  </h1>
+  <nav>
+    <button><a href="/home" style="color: rgb(255, 255, 255)">Home</a></button>
 
-      <div class="col-sm-6">
-        <div class="shopping-item">
-          <a href="cart.html"
-            >Cart - <span class="cart-amunt">$100</span>
-            <i class="fa fa-shopping-cart"></i>
-            <span class="product-count">0</span></a
-          >
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End site branding area -->
+    <button>
+      <a routerLink="/Products" style="color: rgb(255, 255, 255)">Products</a>
+    </button>
 
-<div class="mainmenu-area">
-  <div class="container">
-    <div class="row">
-      <div class="navbar-header">
-        <button
-          type="button"
-          class="navbar-toggle"
-          data-toggle="collapse"
-          data-target=".navbar-collapse"
-        ></button>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop page</a></li>
-          <li><a href="cart.html">Cart</a></li>
-          <li><a href="checkout.html">Checkout</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </div>
+    <button>Contact</button>
+  </nav>
+  <div class="shopping-item">
+    <a href="cart.html"
+      >Cart
+      <i class="fa fa-shopping-cart"></i>
+      <span class="product-count">0</span></a
+    >
   </div>
+</header>
+<div>
+  <svg
+    class="waves"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28"
+    preserveAspectRatio="none"
+    shape-rendering="auto"
+  >
+    <defs>
+      <path
+        id="gentle-wave"
+        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+      />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(140,255,140,0.7" />
+      <use
+        xlink:href="#gentle-wave"
+        x="48"
+        y="3"
+        fill="rgba(140,255,140,0.5)"
+      />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="lightgreen" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="green" />
+    </g>
+  </svg>
 </div>
-<!-- End mainmenu area -->
+<!-- <app-carousel></app-carousel> -->
+<router-outlet></router-outlet>

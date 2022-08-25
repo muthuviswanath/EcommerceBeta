@@ -1,13 +1,11 @@
-
-
 <div class="products">
   <div class="product" *ngFor="let prd of productList">
- 
+
     <mat-card>
-    
+
     <a href=""><img src={{prd.imagepath}} class="card-img-top"></a>
     <h4>{{prd.productname}}</h4>
-    
+
     <p>{{prd.quantity}}</p>
     <p>{{prd.price}}</p>
     <p>{{prd.productrating}}</p>
@@ -15,7 +13,6 @@
     <button class="btn btn-primary" >Add to cart</button>
   </mat-card>
   </div>
-  
- 
 
-   
+
+

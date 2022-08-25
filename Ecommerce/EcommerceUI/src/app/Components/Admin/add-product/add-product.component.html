@@ -1,0 +1,61 @@
+<table>
+  <tr>
+    <td>Product Name</td>
+    <td><input type="text" [(ngModel)]="model.productname" /></td>
+  </tr>
+  <tr>
+    <td>Quantity</td>
+    <td><input type="text" [(ngModel)]="model.quantity" /></td>
+  </tr>
+  <tr>
+    <td>Price</td>
+    <td><input type="text" [(ngModel)]="model.price" /></td>
+  </tr>
+  <tr>
+    <td>Image Path</td>
+    <td><input type="text" [(ngModel)]="model.imagepath" /></td>
+  </tr>
+  <tr>
+    <td>Rating</td>
+    <td><input type="text" [(ngModel)]="model.productrating" /></td>
+  </tr>
+  <tr>
+    <td>Offer Price</td>
+    <td><input type="text" [(ngModel)]="model.productofferprice" /></td>
+  </tr>
+  <tr>
+    <td>Display</td>
+    <td><input type="text" [(ngModel)]="model.display" /></td>
+  </tr>
+  <tr>
+    <td>Memory</td>
+    <td><input type="text" [(ngModel)]="model.memory" /></td>
+  </tr>
+  <tr>
+    <td>Processor</td>
+    <td><input type="text" [(ngModel)]="model.processor" /></td>
+  </tr>
+  <tr>
+    <td>Camera</td>
+    <td><input type="text" [(ngModel)]="model.camera" /></td>
+  </tr>
+  <tr>
+    <td>Battery</td>
+    <td><input type="text" [(ngModel)]="model.battery" /></td>
+  </tr>
+  <tr>
+    <td>Security</td>
+    <td><input type="text" [(ngModel)]="model.security" /></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <input
+        type="button"
+        value="Add Product"
+        class="btn btn-primary"
+        (click)="submit()"
+      />
+    </td>
+  </tr>
+</table>

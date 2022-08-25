@@ -17,6 +17,11 @@ import { ProductsComponent } from './Components/Products/products.component';
 import { ProductService } from './Services/products/product.service';
 import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './Components/carousel/carousel.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { HomeComponent } from './Components/home/home.component';
+import { AddProductComponent } from './Components/Admin/add-product/add-product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductsComponent,
     ShoppingCartComponent,
     WishlistComponent,
+    CarouselComponent,
+    HomeComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +44,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     MatCardModule,
     NgbModule,
+    CarouselModule,
+    FormsModule,
   ],
   providers: [ProductService, WishlistService, ShoppingCartService],
   bootstrap: [AppComponent],
