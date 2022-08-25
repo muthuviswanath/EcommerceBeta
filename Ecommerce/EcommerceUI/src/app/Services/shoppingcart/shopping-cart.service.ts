@@ -8,14 +8,17 @@ import { IShoppingCart } from 'src/app/Interface/IShoppingCart';
 })
 export class ShoppingCartService {
   constructor(private http: HttpClient) {}
-  baseurl: string = 'http://localhost:5000/';
+  baseUrl: string = 'http://localhost:5000/api/';
   getAllProductsFromShopppingCart(): Observable<IShoppingCart[]> {
-    return this.http.get<IShoppingCart[]>(this.baseurl + 'api/Carts');
+    return this.http.get<IShoppingCart[]>(this.baseUrl + 'Carts');
   }
-  getProductsById(prodid: number): Observable<IProducts> {
-    return this.http.get<IProducts>(this.baseurl + 'api/Products/' + prodid);
+  getProductsById(prodId: number): Observable<IProducts> {
+    return this.http.get<IProducts>(this.baseUrl + 'Products/' + prodId);
   }
-  getAllProductsOfUser(userid: number) {
-    return this.http.get(this.baseurl + 'api/Users/' + userid);
+  getAllProductsOfUser(userId: number) {
+    return this.http.get(this.baseUrl + 'Users/' + userId);
+  }
+  deleteProductsFromShoppingCart(cartId: number) {
+    return this.http.delete(this.baseUrl + 'Carts/' + cartId);
   }
 }

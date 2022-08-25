@@ -1,6 +1,4 @@
-import { IProducts } from 'src/app/Interface/IProducts';
 import { Component, Input, OnInit } from '@angular/core';
-import { IShoppingCart } from 'src/app/Interface/IShoppingCart';
 import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart.service';
 
 @Component({
@@ -20,6 +18,10 @@ export class ShoppingCartItemComponent implements OnInit {
     console.log('Decrement');
   }
   onRemoveCartItem(): void {
-    console.log('Delete');
+    this.shoppingCartService
+      .deleteProductsFromShoppingCart(this.product.cartid)
+      .subscribe(() => {
+        window.location.reload();
+      });
   }
 }
