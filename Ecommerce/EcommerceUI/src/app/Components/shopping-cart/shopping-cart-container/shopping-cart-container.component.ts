@@ -9,11 +9,5 @@ import { ShoppingCartItemComponent } from 'src/app/Components/shopping-cart/shop
   styleUrls: ['./shopping-cart-container.component.css'],
 })
 export class ShoppingCartContainerComponent implements OnInit {
-  shoppingCartList?: IShoppingCart[];
-  constructor(private shoppingCartService: ShoppingCartService) {}
-  ngOnInit(): void {
-    this.shoppingCartService
-      .getAllProductsFromShopppingCart()
-      .subscribe((res) => (this.shoppingCartList = res));
-  }
+  ngOnInit(): void {}
 }
