@@ -24,14 +24,14 @@ namespace EcommerceBetaAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cart>>> GetCarts()
         {
-            return await _context.Carts.ToListAsync();
+            return await _context.Carts.Include(c => c.User).Include(c => c.Product).ToListAsync();
         }
 
         // GET: api/Carts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Cart>> GetCart(int id)
         {
-            var cart = await _context.Carts.FindAsync(id);
+            var cart = await _context.Carts.Include(c => c.User).Include(c => c.Product).FirstOrDefaultAsync(c => c.Cartid == id);
 
             if (cart == null)
             {

@@ -9,14 +9,22 @@ import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart
   styleUrls: ['./shopping-cart-item.component.css'],
 })
 export class ShoppingCartItemComponent implements OnInit {
-  shoppingCartList?: IShoppingCart[];
+  shoppingCartList?: any;
   productList?: IProducts;
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit(): void {
     this.shoppingCartService
-      .getProductsById(1)
-      .subscribe((res) => (this.productList = res));
-    console.log(this.productList);
+      .getAllProductsFromShopppingCart()
+      .subscribe((res) => {
+        this.shoppingCartList = res;
+        this.shoppingCartService
+          .getProductsById(this.shoppingCartList.$values[0].cartid)
+          .subscribe((res) => {
+            this.productList = res;
+          });
+      });
+
+    ///
   }
 }

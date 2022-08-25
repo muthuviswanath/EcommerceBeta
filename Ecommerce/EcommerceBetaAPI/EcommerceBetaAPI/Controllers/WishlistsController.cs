@@ -24,14 +24,14 @@ namespace EcommerceBetaAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Wishlist>>> GetWishlists()
         {
-            return await _context.Wishlists.ToListAsync();
+            return await _context.Wishlists.Include(w => w.User).Include(w => w.Product).ToListAsync();
         }
 
         // GET: api/Wishlists/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Wishlist>> GetWishlist(int id)
         {
-            var wishlist = await _context.Wishlists.FindAsync(id);
+            var wishlist = await _context.Wishlists.Include(w => w.User).Include(w => w.Product).FirstOrDefaultAsync(w => w.Wishlistid == id);
 
             if (wishlist == null)
             {
