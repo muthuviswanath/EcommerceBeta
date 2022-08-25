@@ -1,5 +1,5 @@
 import { IProducts } from 'src/app/Interface/IProducts';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IShoppingCart } from 'src/app/Interface/IShoppingCart';
 import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart.service';
 
@@ -9,22 +9,17 @@ import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart
   styleUrls: ['./shopping-cart-item.component.css'],
 })
 export class ShoppingCartItemComponent implements OnInit {
-  shoppingCartList?: any;
-  productList?: IProducts;
+  @Input('product') product: any;
   constructor(private shoppingCartService: ShoppingCartService) {}
 
-  ngOnInit(): void {
-    this.shoppingCartService
-      .getAllProductsFromShopppingCart()
-      .subscribe((res) => {
-        this.shoppingCartList = res;
-        this.shoppingCartService
-          .getProductsById(this.shoppingCartList.$values[0].cartid)
-          .subscribe((res) => {
-            this.productList = res;
-          });
-      });
-
-    ///
+  ngOnInit(): void {}
+  onIncrementCartItem(): void {
+    console.log('Increment');
+  }
+  onDecrementCartItem(): void {
+    console.log('Decrement');
+  }
+  onRemoveCartItem(): void {
+    console.log('Delete');
   }
 }

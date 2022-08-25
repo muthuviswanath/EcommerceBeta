@@ -15,4 +15,7 @@ export class ShoppingCartService {
   getProductsById(prodid: number): Observable<IProducts> {
     return this.http.get<IProducts>(this.baseurl + 'api/Products/' + prodid);
   }
+  getAllProductsOfUser(userid: number) {
+    return this.http.get(this.baseurl + 'api/Users/' + userid);
+  }
 }
