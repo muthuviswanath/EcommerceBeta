@@ -12,11 +12,18 @@ import { ShoppingCartItemComponent } from 'src/app/Components/shopping-cart/shop
 export class ShoppingCartContainerComponent implements OnInit {
   cart_all_data: any;
   cart: any;
+  totalPrice = 0;
   constructor(private shoppingCartService: ShoppingCartService) {}
   ngOnInit(): void {
     this.shoppingCartService.getAllProductsOfUser(1).subscribe((res) => {
       this.cart_all_data = res;
       this.cart = this.cart_all_data.carts.$values;
+
+      for (let i = 0; i < this.cart.length; i++)
+        this.sumAllProductPrice(this.cart[i].product.price);
     });
+  }
+  sumAllProductPrice(price: number) {
+    this.totalPrice += price;
   }
 }
