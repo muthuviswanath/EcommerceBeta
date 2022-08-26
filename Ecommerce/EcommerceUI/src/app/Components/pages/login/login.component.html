@@ -21,14 +21,14 @@
 						<h2>Log In</h2>
 					</div>
 					<div class="row">
-						<form control="" class="form-group">
+						<form control="" class="form-group" [formGroup]="loginForm" (ngSubmit)="checkLogin()">
 							<div class="row">
 								<input type="text" name="username" id="username" class="form__input"
-									placeholder="Username" >
+									placeholder="Username" [formControl]="username" >
 							</div>
 							<div class="row">
 								<input type="password" name="password" id="password" class="form__input"
-									placeholder="Password" >
+									placeholder="Password" [formControl]="password">
 							</div>
 							<div class="row">
 								<input type="submit" value="Submit" class="btn" (click)="checkLogin()" />

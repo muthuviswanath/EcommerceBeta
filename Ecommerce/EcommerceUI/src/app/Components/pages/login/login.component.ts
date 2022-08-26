@@ -1,36 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { map } from 'rxjs';
-import { Iuser } from 'src/app/Interface/Iuser';
-import { UserService } from 'src/app/Services/user/user.service';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/Services/login/login.service';
+import { FormBuilder,FormControl,FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  username: string = "";
-  password: string = "";
-
-
-  userList?: Iuser[];
-  constructor(private service: UserService) { }
+  public formData:any={};
+  // public showMessage:boolean=false;
+  username=new FormControl('');
+  password=new FormControl('');
+  constructor(private service: LoginService,private route:Router,private formBuilder:FormBuilder,private builder:FormBuilder) { }
 
   ngOnInit(): void {
-
-
+    this.loginForm
   }
+  loginForm:FormGroup=this.builder.group({
+    username:this.username,
+    password:this.password
+  })
 
   checkLogin() {
-    // this.service.getUserByName(this.username)
-    // .subscribe(()
-    //   res => this.userList = res
-    // )
-    // console.log(this.userList.find(result => {
-    //   result
-    // }))
-    
-  }
+
+    this.formData=this.loginForm.value;
+    // this.showMessage=true;
+    if(this.loginForm.valid){
+      this.service.loginUser(this.loginForm.value).subscribe( res=>{
+        if(res==null){
+          // alert("You Need To Register")
+          this.route.navigateByUrl('/signup')
+        }
+        else{
+          // alert("Login Successfull")
+          this.route.navigateByUrl('/wishlist')
+        }
+      });
+      }
+   }
+  
 
 }

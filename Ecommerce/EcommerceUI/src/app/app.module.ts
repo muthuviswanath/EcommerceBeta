@@ -17,7 +17,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { UserService } from './Services/user/user.service';
 import { SignupService } from './Services/signup/signup.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -31,8 +32,9 @@ import { FormsModule } from '@angular/forms';
     ProductsComponent,
     ShoppingCartComponent,
     WishlistComponent,
+    AdminDashboardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatCardModule,FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatCardModule,FormsModule,ReactiveFormsModule],
   providers: [ProductService, WishlistService, ShoppingCartService,UserService,SignupService],
   bootstrap: [AppComponent],
 })

@@ -82,6 +82,16 @@ namespace EcommerceBetaAPI.Controllers
 
             return CreatedAtAction("GetUser", new { id = user.Userid }, user);
         }
+        //post used for login verification
+        [HttpPost("login")]
+        public async Task<ActionResult<User>> LoginUser(User user)
+        {
+            //_context.Users.Add(user);
+            var currentUser = _context.Users.Where(u => u.Username == user.Username &&
+            u.Password == user.Password);
+            var dbUser = await currentUser.FirstOrDefaultAsync();
+            return dbUser;
+        }
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
