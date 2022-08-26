@@ -18,4 +18,7 @@ export class WishlistItemComponent implements OnInit {
         window.location.reload();
       });
   }
+  addToCart() {
+    console.log('Product added to cart');
+  }
 }
