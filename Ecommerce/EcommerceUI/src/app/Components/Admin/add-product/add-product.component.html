@@ -1,5 +1,5 @@
-<!-- <div class="container">
-  <form id="contact">
+<div class="container">
+  <form control="" id="contact"  class="form-group">
     <h3>Welcome Admin!!</h3>
     <h4>Add Product</h4>
     <fieldset>
@@ -7,19 +7,21 @@
         placeholder="Product name"
         type="text"
         [(ngModel)]="model.productname"
+        class="form__input"
       />
     </fieldset>
     <fieldset>
-      <input placeholder="Quantity" type="text" [(ngModel)]="model.quantity" />
+      <input placeholder="Quantity" type="text" [(ngModel)]="model.quantity" class="form__input"/>
     </fieldset>
     <fieldset>
-      <input placeholder="Price" type="text" [(ngModel)]="model.price" />
+      <input placeholder="Price" type="text" [(ngModel)]="model.price" class="form__input" />
     </fieldset>
     <fieldset>
       <input
         placeholder="Image Path"
         type="text"
         [(ngModel)]="model.imagepath"
+        class="form__input"
       />
     </fieldset>
     <fieldset>
@@ -27,6 +29,7 @@
         placeholder="Product Rating"
         type="text"
         [(ngModel)]="model.productrating"
+        class="form__input"
       />
     </fieldset>
     <fieldset>
@@ -34,41 +37,43 @@
         type="text"
         [(ngModel)]="model.productofferprice"
         placeholder="Product Offer Price"
+        class="form__input"
       />
     </fieldset>
     <label>Product Description</label>
     <fieldset>
-      <input placeholder="Display" type="text" [(ngModel)]="model.display" />
+      <input placeholder="Display" type="text" [(ngModel)]="model.display" class="form__input" />
     </fieldset>
     <fieldset>
-      <input placeholder="Memory" type="text" [(ngModel)]="model.memory" />
+      <input placeholder="Memory" type="text" [(ngModel)]="model.memory" class="form__input"/>
     </fieldset>
     <fieldset>
       <input
         placeholder="Processor"
         type="text"
         [(ngModel)]="model.processor"
+        class="form__input"
       />
     </fieldset>
     <fieldset>
-      <input placeholder="Camera" type="text" [(ngModel)]="model.camera" />
+      <input placeholder="Camera" type="text" [(ngModel)]="model.camera" class="form__input" />
     </fieldset>
 
     <fieldset>
-      <input placeholder="Security" type="text" [(ngModel)]="model.security" />
+      <input placeholder="Security" type="text" [(ngModel)]="model.security" class="form__input"/>
     </fieldset>
 
     <fieldset>
       <input
-        type="button"
+        type="submit"
         value="Add Product"
         class="btn btn-primary"
         (click)="submit()"
       />
     </fieldset>
   </form>
-</div> -->
-
+</div>
+<!--
 <table>
   <tr>
     <td>Product Name</td>
@@ -129,4 +134,4 @@
       />
     </td>
   </tr>
-</table>
+</table> -->

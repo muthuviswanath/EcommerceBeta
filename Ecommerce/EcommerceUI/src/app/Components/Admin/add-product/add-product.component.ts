@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/Services/products/product.service';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',

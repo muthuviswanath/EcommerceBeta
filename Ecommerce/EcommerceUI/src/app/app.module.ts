@@ -21,7 +21,7 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HomeComponent } from './Components/home/home.component';
 import { AddProductComponent } from './Components/Admin/add-product/add-product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ListProductsComponent } from './Components/Admin/list-products/list-products.component';
 
 @NgModule({
@@ -48,6 +48,7 @@ import { ListProductsComponent } from './Components/Admin/list-products/list-pro
     NgbModule,
     CarouselModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService, WishlistService, ShoppingCartService],
   bootstrap: [AppComponent],
