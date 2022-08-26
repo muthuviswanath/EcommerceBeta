@@ -39,11 +39,11 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,
-    NgbModule,
-    FormsModule
+    NgModule,
+    FormsModule,ReactiveFormsModule
     
   ],
-  providers: [ProductService, WishlistService, ShoppingCartService],
+  providers: [ProductService, WishlistService, ShoppingCartService,UserService,SignupService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
