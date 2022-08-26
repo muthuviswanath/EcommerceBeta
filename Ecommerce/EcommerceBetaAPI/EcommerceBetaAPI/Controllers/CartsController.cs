@@ -87,7 +87,7 @@ namespace EcommerceBetaAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCart(int id)
         {
-            var cart = await _context.Carts.FindAsync(id);
+            var cart = await _context.Carts.Include(c => c.User).Include(c => c.Product).FirstOrDefaultAsync(c => c.Cartid == id);
             if (cart == null)
             {
                 return NotFound();

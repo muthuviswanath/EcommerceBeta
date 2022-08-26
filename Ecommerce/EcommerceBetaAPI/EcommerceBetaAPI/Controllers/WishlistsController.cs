@@ -87,7 +87,7 @@ namespace EcommerceBetaAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWishlist(int id)
         {
-            var wishlist = await _context.Wishlists.FindAsync(id);
+            var wishlist = await _context.Wishlists.Include(w => w.User).Include(w => w.Product).FirstOrDefaultAsync(w => w.Wishlistid == id);
             if (wishlist == null)
             {
                 return NotFound();
