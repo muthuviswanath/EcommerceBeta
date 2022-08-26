@@ -10,7 +10,7 @@ export class ShoppingCartContainerComponent implements OnInit {
   cartAllData: any;
   cart: any;
   totalPrice = 0;
-  userId = 1; //Substitute this value from session user id
+  userId = 4; //Substitute this value from session user id
   constructor(private shoppingCartService: ShoppingCartService) {}
   ngOnInit(): void {
     this.shoppingCartService

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
-import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'shoppingcart', component: ShoppingCartContainerComponent },
-  { path: 'wishlist', component: WishlistComponent },
+  { path: 'wishlist', component: WishlistContainerComponent },
 ];
 
 @NgModule({

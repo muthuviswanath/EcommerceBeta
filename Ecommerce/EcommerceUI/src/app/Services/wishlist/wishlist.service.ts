@@ -10,6 +10,9 @@ export class WishlistService {
   constructor(private http: HttpClient) {}
   baseurl: string = 'http://localhost:5000/';
   getAllProductsFromWishlist(): Observable<IWishlist[]> {
-    return this.http.get<IWishlist[]>(this.baseurl + 'api/wishlists');
+    return this.http.get<IWishlist[]>(this.baseurl + 'api/Wishlists');
+  }
+  deleteProductsFromWishlist(wishlistId: number) {
+    return this.http.delete(this.baseurl + 'api/Wishlists/' + wishlistId);
   }
 }
