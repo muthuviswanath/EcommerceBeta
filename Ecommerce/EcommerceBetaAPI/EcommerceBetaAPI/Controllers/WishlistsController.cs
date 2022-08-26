@@ -26,6 +26,18 @@ namespace EcommerceBetaAPI.Controllers
         {
             return await _context.Wishlists.Include(w => w.User).Include(w => w.Product).ToListAsync();
         }
+        [HttpGet("User/{id}")]
+        public async Task<ActionResult<IEnumerable<Wishlist>>> GetWishlistOfUser(int id)
+        {
+            var wishlist = await _context.Wishlists.Where(w => w.Userid == id).Include(w => w.Product).ToListAsync();
+
+            if (wishlist == null)
+            {
+                return NotFound();
+            }
+
+            return wishlist;
+        }
 
         // GET: api/Wishlists/5
         [HttpGet("{id}")]
