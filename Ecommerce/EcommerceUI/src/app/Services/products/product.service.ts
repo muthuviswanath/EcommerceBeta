@@ -3,11 +3,13 @@ import{HttpClient, HttpHeaders} from '@angular/common/http';
 import { map, Observable } from "rxjs";
 import {IProducts} from '../../Interface/IProducts';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService implements OnInit {
   public data:any={}
+  public pid:any
   
   constructor(private http:HttpClient){}
   setOptions(option:any,value:any){
@@ -33,11 +35,8 @@ export class ProductService implements OnInit {
       
 // }
 public getProductById(productid:any){
-  
   return this.http.get(`${this.baseurl}Products/${productid}`);
 }
-
-
 public addCart(data:any){
   const httpOptions = {
     headers: new HttpHeaders({
@@ -45,6 +44,16 @@ public addCart(data:any){
     })
   };
   return this.http.post(this.baseurl+"Carts",data,httpOptions);
+}
+public addwishlist(data:any){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':'application/json; charset=utf-8'
+    })
+  };
+  
+  return this.http.post(this.baseurl+"Wishlists",data,httpOptions);
+
 }
 
 }

@@ -3,15 +3,17 @@
   <div class="product" *ngFor="let prd of productList;">
 	
 		<div class="card">
-			 <input type="hidden" [(ngModel)]="model.productid">
-			 <input type=number [(ngModel)]="model.userid">
-			<a  (click)="getProduct()"><img src={{prd.imagepath}} class="card-img-top"></a>
+			  
+			<a><img src={{prd.imagepath}} class="card-img-top"></a>
 			<div class="card-body">
 			  <h5 class="card-title">{{prd.productname}}</h5>
 			  <p class="card-text">{{prd.productrating}}</p>
 			  <p class="card-text">{{prd.price|currency:'INR'}}</p>
 			  <p class="card-text">{{prd.productofferprice|currency:'INR'}}</p>
-			  <a href="#" class="btn btn-primary"(click)=submit()  >Add to cart</a>
+			  <a href="#" type="button" class="btn btn-primary" (click)="submit(prd.productid)" >Add to cart</a>
+			  <br>
+			  <br>
+			  <a href="#" type="button" class="btn btn-primary" (click)="submittowishlist(prd.productid)" >Add to wishlist</a>
 			</div>
 		  </div>
   </div>
