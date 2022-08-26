@@ -1,18 +1,22 @@
+<p>Product works</p>
 <div class="products">
-  <div class="product" *ngFor="let prd of productList">
+  <div class="product" *ngFor="let prd of productList;">
 
-    <mat-card>
+		<div class="card">
 
-    <a href=""><img src={{prd.imagepath}} class="card-img-top"></a>
-    <h4>{{prd.productname}}</h4>
-
-    <p>{{prd.quantity}}</p>
-    <p>{{prd.price}}</p>
-    <p>{{prd.productrating}}</p>
-    <p>{{prd.productofferprice}}</p>
-    <button class="btn btn-primary" >Add to cart</button>
-  </mat-card>
+			<a><img src={{prd.imagepath}} class="card-img-top"></a>
+			<div class="card-body">
+			  <h5 class="card-title">{{prd.productname}}</h5>
+			  <p class="card-text">{{prd.productrating}}</p>
+			  <p class="card-text">{{prd.price|currency:'INR'}}</p>
+			  <p class="card-text">{{prd.productofferprice|currency:'INR'}}</p>
+			  <a href="#" type="button" class="btn btn-primary" (click)="submit(prd.productid)" >Add to cart</a>
+			  <br>
+			  <br>
+			  <a href="#" type="button" class="btn btn-primary" (click)="submittowishlist(prd.productid)" >Add to wishlist</a>
+			</div>
+		  </div>
   </div>
-
+</div>
 
 
