@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminDashComponent } from './admin-dash.component';
+import { ListProductsComponent } from './list-products.component';
 
-describe('AdminDashComponent', () => {
-  let component: AdminDashComponent;
-  let fixture: ComponentFixture<AdminDashComponent>;
+describe('ListProductsComponent', () => {
+  let component: ListProductsComponent;
+  let fixture: ComponentFixture<ListProductsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminDashComponent ]
+      declarations: [ ListProductsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdminDashComponent);
+    fixture = TestBed.createComponent(ListProductsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

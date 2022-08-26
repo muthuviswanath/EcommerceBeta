@@ -6,7 +6,7 @@ import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'wishlist', component: WishlistComponent },
   { path: 'Products', component: ProductsComponent },

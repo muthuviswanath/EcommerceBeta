@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>Product Id</th>
+      <th>Product Image</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Offer Price</th>
+      <th>Quantity</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prd of productList">
+      <td>{{ prd.productid }}</td>
+      <td><img src="{{ prd.imagepath }}" /></td>
+      <td>{{ prd.productname }}</td>
+      <td>{{ prd.price }}</td>
+      <td>{{ prd.productofferprice }}</td>
+      <td>{{ prd.quantity }}</td>
+      <td>
+        <button type="button" class="btn btn-success">Update</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
