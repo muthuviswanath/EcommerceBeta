@@ -20,6 +20,8 @@ import { SignupService } from './Services/signup/signup.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     ProductsComponent,
     ShoppingCartComponent,
     WishlistComponent,
-
+    
+  
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatCardModule,FormsModule,ReactiveFormsModule],
   providers: [ProductService, WishlistService, ShoppingCartService,UserService,SignupService],
