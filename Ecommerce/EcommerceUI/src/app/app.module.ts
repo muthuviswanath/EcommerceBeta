@@ -32,8 +32,6 @@ import { FormsModule,FormGroup } from '@angular/forms';
     ProductsComponent,
     ShoppingCartComponent,
     WishlistComponent,
-    
-  
   ],
   imports: [
     BrowserModule,
@@ -42,6 +40,7 @@ import { FormsModule,FormGroup } from '@angular/forms';
     MatCardModule,
     NgbModule,
     FormsModule
+    
   ],
   providers: [ProductService, WishlistService, ShoppingCartService],
   bootstrap: [AppComponent],
