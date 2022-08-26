@@ -77,6 +77,7 @@ namespace EcommerceBetaAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Cart>> PostCart(Cart cart)
         {
+            _context.Carts.Include(c => c.User).Include(c => c.Product);
             _context.Carts.Add(cart);
             await _context.SaveChangesAsync();
 
