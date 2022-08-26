@@ -17,6 +17,9 @@ import { ProductsComponent } from './Components/Products/products.component';
 import { ProductService } from './Services/products/product.service';
 import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule,FormGroup } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductsComponent,
     ShoppingCartComponent,
     WishlistComponent,
+    
+  
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     MatCardModule,
     NgbModule,
+    FormsModule
   ],
   providers: [ProductService, WishlistService, ShoppingCartService],
   bootstrap: [AppComponent],
