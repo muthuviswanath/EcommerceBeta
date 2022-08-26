@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'wishlist', component: WishlistComponent },
-  {path:'product-details',component:ProductDetailsComponent},
+  {path:'shopping-cart',component:ShoppingCartComponent},
+  {path:'product-details',component:ProductDetailsComponent}
   { path: 'login', component: LoginComponent },
   { path:'signup',component:SignupComponent},
   { path: 'Products', component: ProductsComponent },
