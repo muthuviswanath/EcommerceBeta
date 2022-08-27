@@ -1,22 +1,23 @@
-<p>Product works</p>
-<div class="products">
-  <div class="product" *ngFor="let prd of productList;">
-	
-		<div class="card">
-			  
-			<a><img src={{prd.imagepath}} class="card-img-top"></a>
-			<div class="card-body">
-			  <h5 class="card-title">{{prd.productname}}</h5>
-			  <p class="card-text">{{prd.productrating}}</p>
-			  <p class="card-text">{{prd.price|currency:'INR'}}</p>
-			  <p class="card-text">{{prd.productofferprice|currency:'INR'}}</p>
-			  <a href="#" type="button" class="btn btn-primary" (click)="submit(prd.productid)" >Add to cart</a>
-			  <br>
-			  <br>
-			  <a href="#" type="button" class="btn btn-primary" (click)="submittowishlist(prd.productid)" >Add to wishlist</a>
-			</div>
-		  </div>
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+<div >
+  <div class="row" *ngFor="let prd of productList;">
+	<div class='product--green'  *ngIf="searchText===''||prd.productname.toLowerCase().includes(searchText)">
+	  <div class='product_inner'>
+		<img src={{prd.imagepath}}  routerLink="product-detail/{{prd.productid}}" width='300'>
+		<p>{{prd.productname}}</p>
+		<p>{{ prd.productrating }}</p>
+		<p>{{ prd.price | currency: "INR" }}</p>
+		<p>{{ prd.productofferprice | currency: "INR" }}</p>
+		<button (click)="submit(prd.productid)">Add to cart</button>
+		<button (click)="submittowishlist(prd.productid)">Add to wishlist</button>
+	  </div>
+	  <div class='product_overlay'>
+		<h2 href="shopping-cart">Added to basket</h2>
+		<i class='fa fa-check'></i>
+	  </div>
+  </div>
   </div>
 </div>
 
 
+ 

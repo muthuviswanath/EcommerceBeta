@@ -18,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 import { UserService } from './Services/user/user.service';
 import { SignupService } from './Services/signup/signup.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -33,6 +34,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     ProductsComponent,
     ShoppingCartComponent,
     WishlistComponent,
+    SearchComponent,
     
   
   ],
