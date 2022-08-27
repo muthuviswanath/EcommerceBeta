@@ -28,12 +28,7 @@ export class ProductService implements OnInit {
           .get<IProducts[]>(this.baseurl + "Products");
   }
   
-//   postAllProducts(data:any){
-//     const httpoptions={
-//       headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
-//     }
-      
-// }
+
 public getProductById(productid:any){
   return this.http.get(`${this.baseurl}Products/${productid}`);
 }
@@ -54,6 +49,9 @@ public addwishlist(data:any){
   
   return this.http.post(this.baseurl+"Wishlists",data,httpOptions);
 
+}
+getProductdetail(ID: number) {
+  return this.http.get(this.baseurl + 'Products/' + ID);
 }
 
 }
