@@ -24,14 +24,14 @@ namespace EcommerceBetaAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            return await _context.Products.Include(p => p.Carts).Include(p => p.Orders).Include(p => p.Wishlists).ToListAsync();
+            return await _context.Products.ToListAsync();
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _context.Products.Include(p => p.Carts).Include(p => p.Orders).Include(p => p.Wishlists).FirstOrDefaultAsync(p => p.Productid == id);
+            var product = await _context.Products.FindAsync(id);
 
             if (product == null)
             {

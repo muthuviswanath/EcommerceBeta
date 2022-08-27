@@ -30,8 +30,6 @@ namespace EcommerceBetaAPI
         {
 
             services.AddControllers();
-            //.AddJsonOptions(x =>
-            //        x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EcommerceBetaAPI", Version = "v1" });

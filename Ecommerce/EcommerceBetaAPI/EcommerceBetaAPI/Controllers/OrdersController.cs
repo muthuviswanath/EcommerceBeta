@@ -77,6 +77,7 @@ namespace EcommerceBetaAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
+            _context.Orders.Include(o => o.User).Include(o => o.Product);
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 

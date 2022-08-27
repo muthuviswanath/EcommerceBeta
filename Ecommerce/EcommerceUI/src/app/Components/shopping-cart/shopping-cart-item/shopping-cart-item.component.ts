@@ -11,15 +11,31 @@ export class ShoppingCartItemComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit(): void {}
-  onIncrementCartItem(): void {
-    console.log('Increment');
+  onIncrementCartItem(productItem): void {
+    productItem.quantity++;
+    this.editCart(productItem);
   }
-  onDecrementCartItem(): void {
-    console.log('Decrement');
+  onDecrementCartItem(productItem): void {
+    productItem.quantity--;
+    this.editCart(productItem);
   }
   onRemoveCartItem(): void {
     this.shoppingCartService
-      .deleteProductsFromShoppingCart(this.product.cartid)
+      .deleteProductsFromShoppingCart(this.product.cartId)
+      .subscribe(() => {
+        window.location.reload();
+      });
+  }
+  editCart(productItem) {
+    const cartData = {
+      cartid: productItem.cartId,
+      userid: productItem.userId,
+      Productid: productItem.product.productid,
+      carttotal: 0,
+      quantity: productItem.quantity,
+    };
+    this.shoppingCartService
+      .editShoppingCartProduct(productItem.cartId, cartData)
       .subscribe(() => {
         window.location.reload();
       });

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EcommerceBetaAPI.Models;
+using EcommerceBetaAPI.Dto;
 
 namespace EcommerceBetaAPI.Controllers
 {
@@ -26,17 +27,23 @@ namespace EcommerceBetaAPI.Controllers
         {
             return await _context.Wishlists.Include(w => w.User).Include(w => w.Product).ToListAsync();
         }
+
+
         [HttpGet("User/{id}")]
-        public async Task<ActionResult<IEnumerable<Wishlist>>> GetWishlistOfUser(int id)
+        public async Task<ActionResult<IEnumerable<wishlistDTO>>> GetWishlistOfUser(int id)
         {
-            var wishlist = await _context.Wishlists.Where(w => w.Userid == id).Include(w => w.Product).ToListAsync();
-
-            if (wishlist == null)
+            var usersWishlist = _context.Wishlists.Where(x => x.Userid == id).Include(c => c.User).Include(c => c.Product).Select(x =>
+            new wishlistDTO
             {
-                return NotFound();
-            }
-
-            return wishlist;
+                WishlistId = x.Wishlistid,
+                UserId = x.Userid,
+                Username = x.User.Username,
+                EmailId = x.User.Emailid,
+                Address = x.User.Address,
+                Product = x.Product
+            });
+            var value = await usersWishlist.ToListAsync();
+            return value;
         }
 
         // GET: api/Wishlists/5

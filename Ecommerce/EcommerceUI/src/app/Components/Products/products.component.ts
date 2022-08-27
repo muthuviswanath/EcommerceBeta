@@ -9,18 +9,14 @@ import { ProductService } from 'src/app/Services/products/product.service';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  productListAll: any;
   productList: IProducts[] = [];
-  IProducts: Array<any> = [];
   prdData: any = {};
-  public sortBy: string = '';
-  public sortOption: string = 'product_name|asc';
   model: any = {};
   constructor(private service: ProductService) {
     let prdRecord = this.service.getOptions();
-    this.prdData = this.service
-      .getProductById(prdRecord.productid)
-      .subscribe((res) => (this.prdData = res));
+    // this.prdData = this.service
+    //   .getProductById(prdRecord.productid)
+    //   .subscribe((res) => (this.prdData = res));
   }
   ngOnInit(): void {
     this.service.getAllProducts().subscribe((res) => {

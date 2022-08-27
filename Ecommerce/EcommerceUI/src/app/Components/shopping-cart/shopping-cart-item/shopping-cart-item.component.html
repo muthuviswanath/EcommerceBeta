@@ -27,13 +27,13 @@
     <div class="col-4 col-sm-4 col-md-4">
       <div class="quantity">
         <input
-          (click)="onIncrementCartItem()"
+          (click)="onIncrementCartItem(product)"
           type="button"
           value="+"
           class="plus"
         />
         <input
-          [value]="1"
+          [value]="product.quantity"
           [disabled]="true"
           type="number"
           step="1"
@@ -44,7 +44,7 @@
           size="4"
         />
         <input
-          (click)="onDecrementCartItem()"
+          (click)="onDecrementCartItem(product)"
           type="button"
           value="-"
           class="minus"

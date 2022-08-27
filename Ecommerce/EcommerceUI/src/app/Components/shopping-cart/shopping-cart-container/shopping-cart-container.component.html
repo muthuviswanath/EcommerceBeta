@@ -19,6 +19,15 @@
         <div class="pull-right" style="margin: 5px">
           <h5>Total price: {{ totalPrice }} INR</h5>
         </div>
+        <br />
+        <div class="pull-right" style="margin: 5px">
+          <input
+            class="btn btn-info"
+            type="submit"
+            (click)="checkOut()"
+            value="Checkout"
+          />
+        </div>
       </div>
     </div>
   </div>

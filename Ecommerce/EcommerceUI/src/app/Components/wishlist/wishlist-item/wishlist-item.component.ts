@@ -1,3 +1,4 @@
+import { ProductService } from 'src/app/Services/products/product.service';
 import { WishlistService } from 'src/app/Services/wishlist/wishlist.service';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -8,17 +9,33 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WishlistItemComponent implements OnInit {
   @Input('product') product: any;
-  constructor(private wishlistService: WishlistService) {}
+  constructor(
+    private wishlistService: WishlistService,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {}
   onRemoveCartItem() {
     this.wishlistService
-      .deleteProductsFromWishlist(this.product.wishlistid)
+      .deleteProductsFromWishlist(this.product.wishlistId)
       .subscribe(() => {
         window.location.reload();
       });
   }
   addToCart() {
-    console.log('Product added to cart');
+    const cartData = {
+      userid: this.product.userId,
+      Productid: this.product.product.productid,
+      carttotal: 0,
+      quantity: 1,
+    };
+    this.productService.addCart(cartData).subscribe(() => {
+      this.wishlistService
+        .deleteProductsFromWishlist(this.product.wishlistId)
+        .subscribe(() => {
+          console.log('Product added to cart');
+          window.location.reload();
+        });
+    });
   }
 }

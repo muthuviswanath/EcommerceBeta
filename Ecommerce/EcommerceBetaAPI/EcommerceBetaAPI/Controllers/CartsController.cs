@@ -54,10 +54,8 @@ namespace EcommerceBetaAPI.Controllers
 
             return cart;
         }
-        // api/Wishlist/User/1
+
         //GET: api/Carts/User/4
-        //admin api/order/user
-        // 
 
         [HttpGet("User/{id}")]
         public async Task<ActionResult<IEnumerable<cartsDTO>>> GetCartOfUser(int id)
@@ -76,7 +74,6 @@ namespace EcommerceBetaAPI.Controllers
             });
             var value = await usersCart.ToListAsync();
             return value;
-
         }
 
         // PUT: api/Carts/5

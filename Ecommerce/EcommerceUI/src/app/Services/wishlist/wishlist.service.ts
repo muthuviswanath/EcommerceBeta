@@ -8,18 +8,11 @@ import { IWishlist } from 'src/app/Interface/IWishlist';
 })
 export class WishlistService {
   constructor(private http: HttpClient) {}
-  baseurl: string = 'http://localhost:5000/';
-  getAllProductsFromWishlist() {
-    return this.http.get(this.baseurl + 'api/Wishlists');
-  }
-  // getAllWishlistProductsOfUser(userId: number) {
-  //   return this.http.get(this.baseurl + 'api/Users/' + userId);
-  // }
-  //baseurl/api/wishlists/user/2
-  getAllWishlistProductsOfUser(userId: number) {
-    return this.http.get(this.baseurl + 'api/Wishlists/User/' + userId);
-  }
+  baseurl: string = 'http://localhost:5000/api/Wishlists/';
   deleteProductsFromWishlist(wishlistId: number) {
-    return this.http.delete(this.baseurl + 'api/Wishlists/' + wishlistId);
+    return this.http.delete(this.baseurl + wishlistId);
+  }
+  getAllWishlistProductsOfUser(userId: number) {
+    return this.http.get(this.baseurl + 'User/' + userId);
   }
 }
