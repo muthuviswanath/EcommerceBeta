@@ -13,13 +13,19 @@ export class ShoppingCartContainerComponent implements OnInit {
   userId = 4; //Substitute this value from session user id
   constructor(private shoppingCartService: ShoppingCartService) {}
   ngOnInit(): void {
+    // this.shoppingCartService
+    //   .getAllProductsOfUser(this.userId)
+    //   .subscribe((res) => {
+    //     this.cartAllData = res;
+    //     this.cart = this.cartAllData.carts.$values;
+    //     for (let i = 0; i < this.cart.length; i++)
+    //       this.sumAllProductPrice(this.cart[i].product.price);
+    //   });
     this.shoppingCartService
-      .getAllProductsOfUser(this.userId)
+      .getAllShoppingCartProductOfUser(this.userId)
       .subscribe((res) => {
-        this.cartAllData = res;
-        this.cart = this.cartAllData.carts.$values;
-        for (let i = 0; i < this.cart.length; i++)
-          this.sumAllProductPrice(this.cart[i].product.price);
+        this.cart = res;
+        console.log(res);
       });
   }
   sumAllProductPrice(price: number) {

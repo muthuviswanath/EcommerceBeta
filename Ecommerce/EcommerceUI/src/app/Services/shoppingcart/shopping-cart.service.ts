@@ -21,4 +21,8 @@ export class ShoppingCartService {
   deleteProductsFromShoppingCart(cartId: number) {
     return this.http.delete(this.baseUrl + 'Carts/' + cartId);
   }
+
+  getAllShoppingCartProductOfUser(userID: number) {
+    return this.http.get(this.baseUrl + 'Carts/User/' + userID);
+  }
 }
