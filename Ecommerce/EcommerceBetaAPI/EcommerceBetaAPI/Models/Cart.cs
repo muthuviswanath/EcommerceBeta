@@ -12,6 +12,7 @@ namespace EcommerceBetaAPI.Models
         public int Productid { get; set; }
         public double Carttotal { get; set; }
 
+        public int Quantity { get; set; }
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }
     }

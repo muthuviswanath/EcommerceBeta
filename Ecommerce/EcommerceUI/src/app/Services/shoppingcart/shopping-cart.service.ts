@@ -1,14 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
-import { IShoppingCart } from 'src/app/Components/shopping-cart/IShoppingCart';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
 export class ShoppingCartService {
   constructor(private http: HttpClient) {}
-  baseurl: string = 'http://localhost:5000/';
-  getAllProductsFromShopppingCart(): Observable<IShoppingCart[]> {
-    return this.http.get<IShoppingCart[]>(this.baseurl + 'api/carts');
+  baseUrl: string = 'http://localhost:5000/api/';
+  deleteProductsFromShoppingCart(cartId: number) {
+    return this.http.delete(this.baseUrl + 'Carts/' + cartId);
+  }
+
+  getAllShoppingCartProductOfUser(userID: number) {
+    return this.http.get(this.baseUrl + 'Carts/User/' + userID);
+  }
+  editShoppingCartProduct(cartId: number, data: any) {
+    return this.http.put(this.baseUrl + 'Carts/' + cartId, data);
+  }
+  checkoutShoppingCartProducts(cartData: any) {
+    console.log(cartData);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+      }),
+    };
+    return this.http.post(this.baseUrl + 'Orders', cartData, httpOptions);
   }
 }

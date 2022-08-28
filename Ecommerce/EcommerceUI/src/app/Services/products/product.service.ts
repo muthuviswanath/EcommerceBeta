@@ -1,31 +1,26 @@
 import { Injectable, OnInit, Type } from '@angular/core';
-import{HttpClient, HttpHeaders} from '@angular/common/http';
-import { map, Observable } from "rxjs";
-import {IProducts} from '../../Interface/IProducts';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
+import { IProducts } from '../../Interface/IProducts';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService implements OnInit {
-  public data:any={}
-  public pid:any
-  
-  constructor(private http:HttpClient){}
-  setOptions(option:any,value:any){
-    this.data[option]=value;
+  public data: any = {};
+  public pid: any;
+
+  constructor(private http: HttpClient) {}
+  setOptions(option: any, value: any) {
+    this.data[option] = value;
   }
-  getOptions(){
+  getOptions() {
     return this.data;
   }
-  baseurl:string="http://localhost:5000/api/"
-  ngOnInit(): void {
-      
-  }
-  getAllProducts():Observable<IProducts[]>{
-      return this.
-          http
-          .get<IProducts[]>(this.baseurl + "Products");
+  baseurl: string = 'http://localhost:5000/api/';
+  ngOnInit(): void {}
+  getAllProducts(): Observable<IProducts[]> {
+    return this.http.get<IProducts[]>(this.baseurl + 'Products');
   }
   
 
