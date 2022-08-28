@@ -11,7 +11,7 @@ export class WishlistContainerComponent implements OnInit {
   constructor(private wishlistservice: WishlistService) {}
 
   ngOnInit(): void {
-    this.wishlistservice.getAllWishlistProductsOfUser(4).subscribe((res) => {
+    this.wishlistservice.getAllWishlistProductsOfUser(3).subscribe((res) => {
       this.wishlist = res;
     });
   }

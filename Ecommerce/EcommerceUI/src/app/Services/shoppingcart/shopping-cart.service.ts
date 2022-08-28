@@ -17,12 +17,14 @@ export class ShoppingCartService {
     return this.http.put(this.baseUrl + 'Carts/' + cartId, data);
   }
   checkoutShoppingCartProducts(cartData: any) {
-    console.log(cartData);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json; charset=utf-8',
       }),
     };
     return this.http.post(this.baseUrl + 'Orders', cartData, httpOptions);
+  }
+  editProductData(productId: any, data: any) {
+    return this.http.put(this.baseUrl + 'Products/' + productId, data);
   }
 }
