@@ -1,4 +1,27 @@
-<div class="search-container">
+<!-- <div class="search-container">
     <span>Search:</span>
-    <input type=""text [(ngModel)]="enteredSearchValue"(input)="onSearchText()">
+    <input type="text" [(ngModel)]="enteredSearchValue"(input)="onSearchText()">
 </div>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+ <div class="container">
+  <div class="row">    
+   <div class="col-xs-8 col-xs-offset-2">
+    <div class="input-group">    
+    <input type="text" class="form-control"[(ngModel)]="enteredSearchValue"(input)="onSearchText()" placeholder="Search"> 
+     <span class="input-group-btn">
+       <button class="btn btn-default" type="button">
+         <span class="glyphicon glyphicon-search"></span>
+       </button>
+   </span>
+    </div>
+   </div>
+  </div>
+</div>
+
+</body>
+

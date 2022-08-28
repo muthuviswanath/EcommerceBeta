@@ -16,7 +16,7 @@
     display: flex;
     flex-flow: row wrap;
   }
-  .product, .product--pink{
+  .product, .product--green{
     box-shadow: 1px 5px 15px #CCC;
     width: 15em;
     height: auto;
@@ -27,13 +27,14 @@
     position: relative;
     flex: auto;
   }
-  .product--pink {
-    background: linear-gradient(-45deg, #FF386D 50%, rgba(255, 255, 255, 0.5) 50%);
+  .product--green {
+    background: linear-gradient(-45deg, #70C1B3 50%, rgba(255, 255, 255, 0.5) 50%);
   }
-  .product img, .product--blue img, .product--orange img, .product--red img, .product--green img, .product--yellow img, .product--pink img {
+  .product img, .product--green img, .product--yellow img, .product--pink img {
     max-width: 100%;
     height: auto !important;
     text-align: center;
+   
   }
   .product_inner {
     display: flex;

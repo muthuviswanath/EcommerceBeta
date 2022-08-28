@@ -30,15 +30,7 @@ html, body {
   position: relative;
   flex: auto;
 }
-.product--blue {
-  background: linear-gradient(-45deg, #92DCE5 50%, rgba(255, 255, 255, 0.5) 50%);
-}
-.product--orange {
-  background: linear-gradient(-45deg, #EF6F6C 50%, rgba(255, 255, 255, 0.5) 50%);
-}
-.product--red {
-  background: linear-gradient(-45deg, #E84855 50%, rgba(255, 255, 255, 0.5) 50%);
-}
+
 .product--green {
   background: linear-gradient(-45deg, #70C1B3 50%, rgba(255, 255, 255, 0.5) 50%);
 }
