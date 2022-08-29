@@ -23,6 +23,8 @@ import { AddProductComponent } from './Components/admin/add-product/add-product.
 import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
