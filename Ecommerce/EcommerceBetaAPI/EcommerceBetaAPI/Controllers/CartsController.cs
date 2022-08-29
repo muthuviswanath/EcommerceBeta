@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EcommerceBetaAPI.Models;
+using EcommerceBetaAPI.Dto;
 
 namespace EcommerceBetaAPI.Controllers
 {
@@ -22,16 +23,29 @@ namespace EcommerceBetaAPI.Controllers
 
         // GET: api/Carts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cart>>> GetCarts()
+        public async Task<ActionResult<IEnumerable<cartsDTO>>> GetCarts()
         {
-            return await _context.Carts.ToListAsync();
+            // return await _context.Carts.Include(c => c.User).Include(c => c.Product).ToListAsync();
+
+            var test = _context.Carts.Include(c => c.User).Include(c => c.Product).Select(x =>
+            new cartsDTO
+            {
+                CartTotal = x.Carttotal,
+                Username = x.User.Username,
+                EmailId = x.User.Emailid,
+                Address = x.User.Address,
+                Product = x.Product
+            });
+            var value = await test.ToListAsync();
+            return value;
         }
 
         // GET: api/Carts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Cart>> GetCart(int id)
         {
-            var cart = await _context.Carts.FindAsync(id);
+            var cart = await _context.Carts.Include(c => c.User).Include(c => c.Product).FirstOrDefaultAsync(c => c.Cartid == id);
+
 
             if (cart == null)
             {
@@ -39,6 +53,27 @@ namespace EcommerceBetaAPI.Controllers
             }
 
             return cart;
+        }
+
+        //GET: api/Carts/User/4
+
+        [HttpGet("User/{id}")]
+        public async Task<ActionResult<IEnumerable<cartsDTO>>> GetCartOfUser(int id)
+        {
+            var usersCart = _context.Carts.Where(x => x.Userid == id).Include(c => c.User).Include(c => c.Product).Select(x =>
+            new cartsDTO
+            {
+                CartId = x.Cartid,
+                CartTotal = x.Carttotal,
+                UserId = x.Userid,
+                Quantity = x.Quantity,
+                Username = x.User.Username,
+                EmailId = x.User.Emailid,
+                Address = x.User.Address,
+                Product = x.Product
+            });
+            var value = await usersCart.ToListAsync();
+            return value;
         }
 
         // PUT: api/Carts/5
@@ -88,7 +123,7 @@ namespace EcommerceBetaAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCart(int id)
         {
-            var cart = await _context.Carts.FindAsync(id);
+            var cart = await _context.Carts.Include(c => c.User).Include(c => c.Product).FirstOrDefaultAsync(c => c.Cartid == id);
             if (cart == null)
             {
                 return NotFound();

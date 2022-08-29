@@ -1,5 +1,4 @@
-import { WishlistComponent } from './Components/wishlist/wishlist.component';
-import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
+import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import { WishlistService } from 'src/app/Services/wishlist/wishlist.service';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,10 +16,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { UserService } from './Services/user/user.service';
 import { SignupService } from './Services/signup/signup.service';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
-
+import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
+import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
+import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishlist-item.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +31,26 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     SignupComponent,
     ProductDetailsComponent,
     ProductsComponent,
-    ShoppingCartComponent,
-    WishlistComponent,
-    
-  
+    ShoppingCartContainerComponent,
+    ShoppingCartItemComponent,
+    WishlistContainerComponent,
+    WishlistItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatCardModule,FormsModule,ReactiveFormsModule],
-  providers: [ProductService, WishlistService, ShoppingCartService,UserService,SignupService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  providers: [
+    ProductService,
+    WishlistService,
+    ShoppingCartService,
+    UserService,
+    SignupService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

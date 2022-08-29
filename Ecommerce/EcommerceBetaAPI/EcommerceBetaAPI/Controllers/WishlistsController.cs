@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EcommerceBetaAPI.Models;
+using EcommerceBetaAPI.Dto;
 
 namespace EcommerceBetaAPI.Controllers
 {
@@ -24,14 +25,32 @@ namespace EcommerceBetaAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Wishlist>>> GetWishlists()
         {
-            return await _context.Wishlists.ToListAsync();
+            return await _context.Wishlists.Include(w => w.User).Include(w => w.Product).ToListAsync();
+        }
+
+
+        [HttpGet("User/{id}")]
+        public async Task<ActionResult<IEnumerable<wishlistDTO>>> GetWishlistOfUser(int id)
+        {
+            var usersWishlist = _context.Wishlists.Where(x => x.Userid == id).Include(c => c.User).Include(c => c.Product).Select(x =>
+            new wishlistDTO
+            {
+                WishlistId = x.Wishlistid,
+                UserId = x.Userid,
+                Username = x.User.Username,
+                EmailId = x.User.Emailid,
+                Address = x.User.Address,
+                Product = x.Product
+            });
+            var value = await usersWishlist.ToListAsync();
+            return value;
         }
 
         // GET: api/Wishlists/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Wishlist>> GetWishlist(int id)
         {
-            var wishlist = await _context.Wishlists.FindAsync(id);
+            var wishlist = await _context.Wishlists.Include(w => w.User).Include(w => w.Product).FirstOrDefaultAsync(w => w.Wishlistid == id);
 
             if (wishlist == null)
             {
@@ -87,7 +106,7 @@ namespace EcommerceBetaAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWishlist(int id)
         {
-            var wishlist = await _context.Wishlists.FindAsync(id);
+            var wishlist = await _context.Wishlists.Include(w => w.User).Include(w => w.Product).FirstOrDefaultAsync(w => w.Wishlistid == id);
             if (wishlist == null)
             {
                 return NotFound();
