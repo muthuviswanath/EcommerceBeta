@@ -1,4 +1,3 @@
-import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import { WishlistService } from 'src/app/Services/wishlist/wishlist.service';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,9 +17,10 @@ import { UserService } from './Services/user/user.service';
 import { SignupService } from './Services/signup/signup.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
 import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishlist-item.component';
+import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
+import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 
 @NgModule({
   declarations: [
