@@ -18,6 +18,9 @@ import { MatCardModule } from '@angular/material/card';
 import { UserService } from './Services/user/user.service';
 import { SignupService } from './Services/signup/signup.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ListProductComponent } from './Components/admin/list-product/list-product.component';
+import { AddProductComponent } from './Components/admin/add-product/add-product.component';
+import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     ProductsComponent,
     ShoppingCartComponent,
     WishlistComponent,
+    ListProductComponent,
+    AddProductComponent,
+    UpdateProductComponent,
 
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatCardModule,FormsModule,ReactiveFormsModule],

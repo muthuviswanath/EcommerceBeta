@@ -1,13 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Ecommerce",
     "\\Ecommerce\\EcommerceBetaAPI",
-    "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI",
-    "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI\\bin",
-    "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI\\Controllers",
-    "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI\\Models"
+    "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI"
   ],
-  "SelectedNode": "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI\\bin",
+  "SelectedNode": "\\Ecommerce",
   "PreviewInSolutionExplorer": false
 }
