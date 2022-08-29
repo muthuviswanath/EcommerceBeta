@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IProducts } from 'src/app/Interface/IProducts';
 import { ProductService } from 'src/app/Services/products/product.service';
-4;
+
 
 @Component({
   selector: 'app-products',
