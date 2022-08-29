@@ -1,28 +1,22 @@
-<html lang="en">
 
-<head>
-  <title>Harvest vase</title>
-  <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
-</head>
-
-<body>
-  <div class="wrapper">
-    <div class="product-img">
-      <img src="assets/iphone.png" height="420" width="327">
-    </div>
-    <div class="product-info">
-      <div class="product-text">
-        <h1>Harvest Vase</h1>
-        <h2>by studio and friends</h2>
-        <p>Harvest Vases are a reinterpretation<br> of peeled fruits and vegetables as<br> functional objects. The surfaces<br> appear to be sliced and pulled aside,<br> allowing room for growth. </p>
-      </div>
-      <div class="product-price-btn">
-        <p><span>78</span>$</p>
-        <button type="button">buy now</button>
-      </div>
-    </div>
+<div class="row">
+<div class='product--green'>
+  <div class='product_inner'>
+    <img src="{{Product.imagepath}}" width='300'>
+    <h2>{{Product.productname}}</h2>
+    <ul>
+      <li>{{Product.display}}</li>
+      <li>{{Product.memory}}</li>
+      <li>{{Product.processor}}</li>
+      <li>{{Product.camera}}</li>
+      <li>{{Product.battery}}</li>
+      <li>{{Product.security}}</li>
+    </ul>
+    <button (click)="submittocart(Product.productid)">Add to cart</button>
+    <button (click)="submittowishlist(Product.productid)">Add to wishlist</button>
+    
   </div>
+  
+</div>
+</div>
 
-</body>
-
-</html>

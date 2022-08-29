@@ -27,12 +27,15 @@ import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.servi
 import { UserService } from './Services/user/user.service';
 
 import { SignupService } from './Services/signup/signup.service';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 
 import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
 
 import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishlist-item.component';
 import { MatCardModule } from '@angular/material/card';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
+import { Filter } from './Filter';
 
 import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -52,6 +55,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ShoppingCartItemComponent,
     WishlistContainerComponent,
     WishlistItemComponent,
+    SearchComponent,
+    Filter
     HomeComponent,
     CarouselComponent,
   ],
@@ -61,12 +66,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatCardModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProductService,
     WishlistService,
     ShoppingCartService,
+    SearchComponent,
     UserService,
     SignupService,
   ],

@@ -14,8 +14,10 @@ const routes: Routes = [
   { path: 'wishlist', component: WishlistContainerComponent },
   { path: 'product-details', component: ProductDetailsComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'products', component: ProductsComponent },
+  { path:'signup',component:SignupComponent},
+   {path:'product/:id',component:ProductsComponent},
+  {path:'product-detail/:id',component:ProductDetailsComponent},
+  {path:'products',component:ProductsComponent}
   { path: 'home', component: HomeComponent },
 ];
 

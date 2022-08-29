@@ -22,31 +22,31 @@ export class ProductService implements OnInit {
   getAllProducts(): Observable<IProducts[]> {
     return this.http.get<IProducts[]>(this.baseurl + 'Products');
   }
+  
 
-  //   postAllProducts(data:any){
-  //     const httpoptions={
-  //       headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
-  //     }
+public getProductById(productid:any){
+  return this.http.get(`${this.baseurl}Products/${productid}`);
+}
+public addCart(data:any){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':'application/json; charset=utf-8'
+    })
+  };
+  return this.http.post(this.baseurl+"Carts",data,httpOptions);
+}
+public addwishlist(data:any){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':'application/json; charset=utf-8'
+    })
+  };
+  
+  return this.http.post(this.baseurl+"Wishlists",data,httpOptions);
 
-  // }
-  public getProductById(productid: number) {
-    return this.http.get(`${this.baseurl}Products/${productid}`);
-  }
-  public addCart(data: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json; charset=utf-8',
-      }),
-    };
-    return this.http.post(this.baseurl + 'Carts', data, httpOptions);
-  }
-  public addwishlist(data: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json; charset=utf-8',
-      }),
-    };
+}
+getProductdetail(ID: number) {
+  return this.http.get(this.baseurl + 'Products/' + ID);
+}
 
-    return this.http.post(this.baseurl + 'Wishlists', data, httpOptions);
-  }
 }
