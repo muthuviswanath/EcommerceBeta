@@ -36,13 +36,11 @@ import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishl
 import { Filter } from './Filter';
 import { MatCardModule } from '@angular/material/card';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
-import { Filter } from './Filter';
-
 import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import { HomeComponent } from './Components/home/home.component';
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,9 +55,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WishlistContainerComponent,
     WishlistItemComponent,
     SearchComponent,
-    Filter
-    SearchComponent,
     Filter,
+    SearchComponent,
     HomeComponent,
     CarouselComponent,
   ],
