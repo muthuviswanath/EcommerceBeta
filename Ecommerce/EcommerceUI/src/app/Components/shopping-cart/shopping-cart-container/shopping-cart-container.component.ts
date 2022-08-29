@@ -25,13 +25,9 @@ export class ShoppingCartContainerComponent implements OnInit {
   ngOnInit(): void {
     this.userId = +localStorage.getItem('userid');
 
-    console.log(this.userId);
-    // debugger;
     this.shoppingCartService
       .getAllShoppingCartProductOfUser(this.userId)
       .subscribe((res) => {
-        console.log(this.userId);
-        // debugger;
         this.cart = res;
         for (let i = 0; i < this.cart.length; i++)
           this.sumAllProductPrice(this.cart[i]);
@@ -56,11 +52,10 @@ export class ShoppingCartContainerComponent implements OnInit {
         .subscribe(() => {
           this.cart[i].product.quantity =
             this.cart[i].product.quantity - this.cart[i].quantity;
+          // console.log(this.cart[i].product);
+          // debugger;
           this.shoppingCartService
-            .editShoppingCartProduct(
-              this.checkoutData.productid,
-              this.cart[i].product
-            )
+            .editProductData(this.checkoutData.productid, this.cart[i].product)
             .subscribe();
           for (let i = 0; i < this.cart.length; i++) {
             this.shoppingCartService
