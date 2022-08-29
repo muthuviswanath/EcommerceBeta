@@ -1,16 +1,15 @@
 import { Injectable, OnInit, Type } from '@angular/core';
-import{HttpClient, HttpHeaders, HttpHeaders} from '@angular/common/http';
-import { map, Observable } from "rxjs";
-import {IProducts} from '../../Interface/IProducts';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
+import { IProducts } from '../../Interface/IProducts';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService implements OnInit {
-  public data:any={}
-  public pid:any
-  
+  public data: any = {};
+  public pid: any;
+
   // productid:any;
   // public data:any={}
   // setOptions(option,value){
@@ -19,29 +18,20 @@ export class ProductService implements OnInit {
   // getOptions(){
   //   return this.data;
   // }
-  constructor(private http:HttpClient){}
-  setOptions(option:any,value:any){
-    this.data[option]=value;
+  constructor(private http: HttpClient) {}
+  setOptions(option: any, value: any) {
+    this.data[option] = value;
   }
-  getOptions(){
+  getOptions() {
     return this.data;
   }
-  baseurl:string="http://localhost:5000/api/"
-  ngOnInit(): void {
-      
-  }
-  getAllProducts():Observable<IProducts[]>{
-      return this.
-          http
-          .get<IProducts[]>(this.baseurl + "Products");
+  baseurl: string = 'http://localhost:5000/api/';
+  ngOnInit(): void {}
+  getAllProducts(): Observable<IProducts[]> {
+    return this.http.get<IProducts[]>(this.baseurl + 'Products');
   }
   
-//   postAllProducts(data:any){
-//     const httpoptions={
-//       headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
-//     }
-      
-// }
+
 public getProductById(productid:any){
   return this.http.get(`${this.baseurl}Products/${productid}`);
 }
@@ -62,6 +52,9 @@ public addwishlist(data:any){
   
   return this.http.post(this.baseurl+"Wishlists",data,httpOptions);
 
+}
+getProductdetail(ID: number) {
+  return this.http.get(this.baseurl + 'Products/' + ID);
 }
 
 addProduct(data: any) {

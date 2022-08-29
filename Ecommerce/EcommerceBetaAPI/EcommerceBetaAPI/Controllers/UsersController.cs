@@ -24,14 +24,14 @@ namespace EcommerceBetaAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u=>u.Product).ToListAsync();
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u => u.Product).FirstOrDefaultAsync(u => u.Userid == id);
 
             if (user == null)
             {
@@ -97,7 +97,7 @@ namespace EcommerceBetaAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).FirstOrDefaultAsync(u => u.Userid == id); ;
             if (user == null)
             {
                 return NotFound();

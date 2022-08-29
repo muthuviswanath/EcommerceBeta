@@ -11,6 +11,7 @@ namespace EcommerceBetaAPI.Models
         public int Userid { get; set; }
         public int Productid { get; set; }
         public DateTime Orderdate { get; set; }
+        public float TotalPrice { get; set; }
 
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }
