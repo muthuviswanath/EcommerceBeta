@@ -8,6 +8,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  userData: any;
   public formData: any = {};
   // public showMessage:boolean=false;
   username = new FormControl('');
@@ -32,11 +33,11 @@ export class LoginComponent implements OnInit {
     // this.showMessage=true;
     if (this.loginForm.valid) {
       this.service.loginUser(this.loginForm.value).subscribe((res) => {
-        if (res == null) {
-          // alert("You Need To Register")
+        this.userData = res;
+        if (this.userData == null) {
           this.route.navigateByUrl('/signup');
         } else {
-          // alert("Login Successfull")
+          localStorage.setItem('userid', this.userData.userid);
           this.route.navigateByUrl('/products');
         }
       });

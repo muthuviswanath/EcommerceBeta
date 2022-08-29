@@ -9,10 +9,13 @@ import { WishlistService } from 'src/app/Services/wishlist/wishlist.service';
 export class WishlistContainerComponent implements OnInit {
   wishlist: any;
   constructor(private wishlistservice: WishlistService) {}
-
+  userid: number;
   ngOnInit(): void {
-    this.wishlistservice.getAllWishlistProductsOfUser(3).subscribe((res) => {
-      this.wishlist = res;
-    });
+    this.userid = +localStorage.getItem('userid');
+    this.wishlistservice
+      .getAllWishlistProductsOfUser(this.userid)
+      .subscribe((res) => {
+        this.wishlist = res;
+      });
   }
 }

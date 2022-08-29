@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
 
   public submit(prdid: any): void {
     this.model.productid = prdid;
-    this.model.userid = 3;
+    this.model.userid = +localStorage.getItem('userid');
     this.model.quantity = 1;
     console.log(this.model);
     this.service.addCart(this.model).subscribe(() => {
@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
   }
   public submittowishlist(prdid: any): void {
     this.model.productid = prdid;
-    this.model.userid = 3;
+    this.model.userid = +localStorage.getItem('userid');
     console.log(this.model);
     this.service.addwishlist(this.model).subscribe(() => {
       this.route.navigateByUrl('/products');

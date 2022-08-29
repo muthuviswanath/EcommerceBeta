@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  DatePipe,
+  DATE_PIPE_DEFAULT_TIMEZONE,
+  formatDate,
+} from '@angular/common';
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart.service';
 
 @Component({
@@ -10,12 +15,23 @@ export class ShoppingCartContainerComponent implements OnInit {
   cart: any;
   checkoutData: any = {};
   totalPrice = 0;
-  userId = 3; //Substitute this value from session user id
-  constructor(private shoppingCartService: ShoppingCartService) {}
+  userId: number; //Substitute this value from session user id
+  mydate: string = Date();
+
+  constructor(
+    private shoppingCartService: ShoppingCartService,
+    @Inject(LOCALE_ID) public locale: string
+  ) {}
   ngOnInit(): void {
+    this.userId = +localStorage.getItem('userid');
+
+    console.log(this.userId);
+    // debugger;
     this.shoppingCartService
       .getAllShoppingCartProductOfUser(this.userId)
       .subscribe((res) => {
+        console.log(this.userId);
+        // debugger;
         this.cart = res;
         for (let i = 0; i < this.cart.length; i++)
           this.sumAllProductPrice(this.cart[i]);
@@ -28,7 +44,11 @@ export class ShoppingCartContainerComponent implements OnInit {
     for (let i = 0; i < this.cart.length; i++) {
       this.checkoutData.userid = this.cart[i].userId;
       this.checkoutData.productid = this.cart[i].product.productid;
-      // this.checkoutData.orderdate = Date();
+      this.checkoutData.orderdate = formatDate(
+        this.mydate,
+        'YYYY-MM-ddThh:mm:ss.ms',
+        this.locale
+      );
       this.checkoutData.totalPrice =
         this.cart[i].quantity * this.cart[i].product.price;
       this.shoppingCartService
