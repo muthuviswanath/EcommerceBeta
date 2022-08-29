@@ -1,4 +1,4 @@
-
+<router-outlet></router-outlet>
 <div class="header-area">
   <div class="container">
     <div class="row">
@@ -14,8 +14,9 @@
             <li>
               <a href="/shoppingcart"><i class="fa fa-user"></i> My Cart</a>
             </li>
+
             <li>
-              <a href="/pages/login"><i class="fa fa-user"></i> Login</a>
+              <a href="/login"><i class="fa fa-user"></i> Login</a>
             </li>
           </ul>
         </div>
@@ -43,7 +44,7 @@
     <a href="/shoppingcart"
       >Cart
       <i class="fa fa-shopping-cart"></i>
-      <span class="product-count">0</span></a
+      <span class="product-count">{{ quantity }}</span></a
     >
   </div>
 </header>
@@ -63,15 +64,15 @@
       />
     </defs>
     <g class="parallax">
-      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(140,255,140,0.7" />
       <use
         xlink:href="#gentle-wave"
         x="48"
-        y="3"
-        fill="rgba(140,255,140,0.5)"
+        y="0"
+        fill="rgba(112, 193, 179,0.5"
       />
-      <use xlink:href="#gentle-wave" x="48" y="5" fill="lightgreen" />
-      <use xlink:href="#gentle-wave" x="48" y="7" fill="green" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="#70C1B3" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="#3c736a" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#70C1B3" />
     </g>
   </svg>
 </div>
