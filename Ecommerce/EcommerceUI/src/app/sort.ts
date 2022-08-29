@@ -2,15 +2,13 @@ import { ResourceLoader } from "@angular/compiler";
 import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-    name: 'ProductNameSearch'
+    name: 'sort'
 })
 
-export class Filter implements PipeTransform{
+export class sort implements PipeTransform{
     
-    public transform(value: any[], searchtext:string) {
-        return searchtext.length > 2 ? value.filter( res => res.productname.toLowerCase().includes(searchtext.toLowerCase())) : value;
-    }
-    public sorting(value:any,args:any[]):any{
+    public transform(value: any[],args:any[]):any {
+     
         const sortField=args[0];
         value.sort((a:any,b:any)=>{
             if(a[sortField]<b[sortField]){
@@ -21,6 +19,7 @@ export class Filter implements PipeTransform{
                 return 0;
             }
         });
+        return value;
     }
 
   

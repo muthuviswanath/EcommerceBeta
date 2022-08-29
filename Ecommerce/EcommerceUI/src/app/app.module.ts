@@ -23,6 +23,8 @@ import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopp
 import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
 import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishlist-item.component';
 import { Filter } from './Filter';
+import {sort} from './sort'
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { Filter } from './Filter';
     WishlistContainerComponent,
     WishlistItemComponent,
     SearchComponent,
-    Filter
+    Filter,
+    sort
   ],
   imports: [
     BrowserModule,

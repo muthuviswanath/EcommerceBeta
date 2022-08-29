@@ -4,6 +4,7 @@ import { IProducts } from 'src/app/Interface/IProducts';
 import { ProductService } from 'src/app/Services/products/product.service';4
 import { ActivatedRoute } from '@angular/router';
 import { Filter } from 'src/app/Filter';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -16,6 +17,7 @@ export class ProductsComponent implements OnInit {
   Id:number
   product:any
   model:any={};
+  filter:string="";
   constructor(private service:ProductService, private route: Router){}
   ngOnInit():void{
     this.service.getAllProducts().subscribe(
