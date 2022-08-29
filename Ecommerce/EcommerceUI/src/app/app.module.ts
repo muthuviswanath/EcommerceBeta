@@ -15,12 +15,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { UserService } from './Services/user/user.service';
 import { SignupService } from './Services/signup/signup.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 
 import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
 import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishlist-item.component';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
+import { Filter } from './Filter';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-c
     ShoppingCartItemComponent,
     WishlistContainerComponent,
     WishlistItemComponent,
+    SearchComponent,
+    Filter
   ],
   imports: [
     BrowserModule,
@@ -42,12 +46,13 @@ import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-c
     HttpClientModule,
     MatCardModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProductService,
     WishlistService,
     ShoppingCartService,
+    SearchComponent,
     UserService,
     SignupService,
   ],
