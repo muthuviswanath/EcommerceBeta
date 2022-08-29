@@ -13,10 +13,13 @@ export class ShoppingCartItemComponent implements OnInit {
   ngOnInit(): void {}
   onIncrementCartItem(productItem): void {
     productItem.quantity++;
+    if (productItem.quantity > productItem.product.quantity)
+      productItem.quantity = productItem.product.quantity;
     this.editCart(productItem);
   }
   onDecrementCartItem(productItem): void {
     productItem.quantity--;
+    if (productItem.quantity < 1) productItem.quantity = 1;
     this.editCart(productItem);
   }
   onRemoveCartItem(): void {

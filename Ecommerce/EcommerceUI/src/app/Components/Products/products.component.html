@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="product--green" *ngFor="let prd of productList | ProductNameSearch: searchText;" >
 				<div class='product_inner'>	 
-				<img src={{prd.imagepath}}  routerLink="product-detail/{{prd.productid}}" width='300'>
+				<img src={{prd.imagepath}}  routerLink="/product-detail/{{prd.productid}}" width='300' alt="prdimg">
 				<h3>{{prd.productname}}</h3>
 				<p>{{ prd.productrating }}</p>
 				<p>{{ prd.price | currency: "INR" }}</p>
