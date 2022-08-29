@@ -19,7 +19,7 @@ html, body {
   flex-flow: row wrap;
 }
 
-.product, .product--pink, .product--yellow, .product--green, .product--red, .product--orange, .product--blue {
+.product,.product--green {
   box-shadow: 1px 5px 15px #CCC;
   width: 15em;
   height: auto;
@@ -36,7 +36,7 @@ html, body {
 }
 
 
-.product img, .product--blue img, .product--orange img, .product--red img, .product--green img, .product--yellow img, .product--pink img {
+.product img,.product--green img {
   max-width: 100%;
   height: auto !important;
   text-align: center;
@@ -59,6 +59,9 @@ html, body {
   cursor: pointer;
   transition: background ease-in 0.25s;
 }
+/* .product--green:hover{
+  transform: scale(1.5);
+} */
 .product_inner button:hover {
   background: white;
   color: #2B2D42;
@@ -74,27 +77,9 @@ html, body {
 .product_inner button:hover:before {
   color: #2B2D42;
 }
-.product_overlay {
-  background: rgba(255, 255, 255, 0.9);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  transform: translateY(-500px);
-  opacity: 0;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-}
-.product_overlay h2 {
-  color: rgba(43, 45, 66, 0.7);
-  font-size: 1.2em;
-  margin: 1em 0;
-}
-.product_overlay i {
-  color: rgba(43, 45, 66, 0.7);
-  font-size: 1.5em;
+p{
+  padding: 8px;
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+  color: darkslategrey;
 }

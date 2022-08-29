@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IProducts } from 'src/app/Interface/IProducts';
 import { ProductService } from 'src/app/Services/products/product.service';4
 import { ActivatedRoute } from '@angular/router';
+import { Filter } from 'src/app/Filter';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -24,6 +25,7 @@ export class ProductsComponent implements OnInit {
     this.model.productid = prdid;
     this.model.userid = 3;
     console.log(this.model);
+    alert("Added to cart");
     this.service.addCart(this.model).subscribe();
   }
 
@@ -31,6 +33,7 @@ export class ProductsComponent implements OnInit {
     this.model.productid = prdid;
     this.model.userid = 3;
     console.log(this.model);
+    alert("Added to wishlist");
     this.service.addwishlist(this.model).subscribe();
   }
 

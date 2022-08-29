@@ -93,3 +93,9 @@
     color: rgba(43, 45, 66, 0.7);
     font-size: 1.5em;
   }
+  li{
+    padding: 8px;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: darkslategrey;
+  }

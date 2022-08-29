@@ -2,20 +2,15 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
-
-  
-	<div class="row" *ngFor="let prd of productList;" >
-	  <div class='product--green' *ngIf="searchText===''||prd.productname.toLowerCase().includes(searchText)">
-		<div class="product_inner" >
-		<!-- <div class="row">
-			<div class="product--green" *ngFor="let prd of productList;" >
-				<div class='product_inner' *ngIf="searchText===''||prd.productname.toLowerCase().includes(searchText)">	  -->
+		<div class="row">
+			<div class="product--green" *ngFor="let prd of productList | ProductNameSearch: searchText;" >
+				<div class='product_inner'>	 
 				<img src={{prd.imagepath}}  routerLink="product-detail/{{prd.productid}}" width='300'>
 				<h3>{{prd.productname}}</h3>
 				<p>{{ prd.productrating }}</p>
 				<p>{{ prd.price | currency: "INR" }}</p>
 				<p>{{ prd.productofferprice | currency: "INR" }}</p>
-				<button (click)="submit(prd.productid)">Add to cart</button>
+				<button (click)="submit(prd.productid)">Add to basket</button>
 				<button (click)="submittowishlist(prd.productid)">Add to wishlist</button>
 	 			</div>
   			</div>

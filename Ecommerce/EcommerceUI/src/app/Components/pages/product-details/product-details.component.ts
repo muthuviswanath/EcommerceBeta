@@ -12,6 +12,7 @@ export class ProductDetailsComponent implements OnInit {
   IProducts:Array<any>=[];
   id:any;
   Product:any;
+  model:any;
   constructor(private service:ProductService,private activatedRoute:ActivatedRoute) { }
   
   ngOnInit(): void {
@@ -23,7 +24,22 @@ export class ProductDetailsComponent implements OnInit {
   getProductById(id:number){
     this.service.getProductdetail(id).subscribe((res)=>{
       this.Product=res;
+      // this.id=id;
     })
+  }
+  public submittocart(pid:any):void{
+    this.Product.productid =pid;
+    this.Product.userid = 3;
+    console.log(this.Product);
+    alert("Added to cart");
+    this.service.addCart(this.Product).subscribe();
+  }
+  public submittowishlist(pid:any):void{
+    this.Product.productid = pid;
+    this.Product.userid = 3;
+    console.log(this.Product);
+    alert("Added to wishlist");
+    this.service.addwishlist(this.Product).subscribe();
   }
 
 }
