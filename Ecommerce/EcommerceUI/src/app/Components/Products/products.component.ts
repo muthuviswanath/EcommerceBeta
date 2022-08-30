@@ -22,6 +22,8 @@ export class ProductsComponent implements OnInit {
   shoppingCartList: any;
   wishlist: any;
   filter:string="";
+  SortbyParam:string="";
+  SortDirection:string="";
   constructor(
     private service:ProductService,
     private route: Router,
@@ -86,5 +88,12 @@ export class ProductsComponent implements OnInit {
   onSearchTextEntered(searchValue:string){
     this.searchText=searchValue;
     // console.log(this.searchText);
+  }
+  onSortDirection(){
+    if(this.SortDirection==="desc"){
+      this.SortDirection='asc';
+    }else{
+      this.SortDirection='desc';
+    }
   }
 }

@@ -2,18 +2,29 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
-<div class="dropdown">
-	<!-- <button class="btn btn-secondary dropdown-toggle" name="Filter" [(ngModel)]="Filter"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<!-- <div class="dropdown">
+	<button class="btn btn-secondary dropdown-toggle" name="Filter" [(ngModel)]="Filter"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	  Filter
-	</button> -->
+	</button>
 	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 	  <a class="dropdown-item" href="#">productofferprice</a>
 	  <a class="dropdown-item" href="#">productrating</a>
 	  <a class="dropdown-item" href="#">productname</a>
 	</div>
-  </div>
+  </div> -->
+  <label>Sort by &nbsp;</label>
+  <select [(ngModel)]="SortbyParam">
+	<option value="productofferprice">Price</option>
+	<option value="productrating">Rating</option>
+	<option value="productname">A-Z</option>
+  </select>
+  
+  <button type="button" (click)="onSortDirection()">
+	<i *ngIf="SortDirection==='asc'" class="arrow-up"></i>
+	<i class="arrow-down" *ngIf="SortDirection==='desc'"></i>
+  </button>
 		<div class="row">
-			<div class="product--green" *ngFor="let prd of productList | ProductNameSearch: searchText |sort:['productrating']" >
+			<div class="product--green" *ngFor="let prd of productList | ProductNameSearch: searchText |sort:[SortbyParam,SortDirection]" >
 				<div class='product_inner'>	 
 				<img src={{prd.imagepath}}  routerLink="/product-detail/{{prd.productid}}" width='300' alt="prdimg">
 				<h3>{{prd.productname}}</h3>
@@ -25,19 +36,7 @@
 	 			</div>
   			</div>
   		</div>
-		  <div class="row">
-			<div class="product--green" *ngFor="let prd of productList" >
-				<div class='product_inner'>	 
-				<img src={{prd.imagepath}}  routerLink="/product-detail/{{prd.productid}}" width='300' alt="prdimg">
-				<h3>{{prd.productname}}</h3>
-				<p>{{ prd.productrating }}</p>
-				<p>{{ prd.price | currency: "INR" }}</p>
-				<p>{{ prd.productofferprice | currency: "INR" }}</p>
-				<button (click)="submit(prd.productid)">Add to basket</button>
-				<button (click)="submittowishlist(prd.productid)">Add to wishlist</button>
-	 			</div>
-  			</div>
-  		</div>
+	
 
 
 
