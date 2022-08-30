@@ -25,6 +25,7 @@ export class ProductDetailsComponent implements OnInit {
     this.service.getProductdetail(id).subscribe((res)=>{
       this.Product=res;
       // this.id=id;
+      this.service.update(id,res);
     })
   }
   public submittocart(pid:any):void{

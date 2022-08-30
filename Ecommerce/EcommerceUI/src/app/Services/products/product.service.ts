@@ -48,5 +48,8 @@ public addwishlist(data:any){
 getProductdetail(ID: number) {
   return this.http.get(this.baseurl + 'Products/' + ID);
 }
+update(id:number,data:any){
+
+}
 
 }

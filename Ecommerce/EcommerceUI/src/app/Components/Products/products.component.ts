@@ -30,12 +30,14 @@ export class ProductsComponent implements OnInit {
     private shoppingcartservice: ShoppingCartService,
     private wishlistservice: WishlistService
   ){}
-  ngOnInit():void{
-    this.service.getAllProducts().subscribe(
-      res => this.productList = res
-    ); 
+  
+  ngOnInit(): void {
+    this.service.getAllProducts().subscribe((res) => {
+      this.productList = res;
+    });
   }
-  public submit(prdid:any):void{
+
+  public submit(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
     this.model.quantity = 1;
@@ -76,9 +78,8 @@ export class ProductsComponent implements OnInit {
           }
         }
         if (flag == 0) {
-          alert("Added to wishlist");
-    this.service.addwishlist(this.model).subscribe(() => {
-            // this.route.navigateByUrl('/Products');
+          this.service.addwishlist(this.model).subscribe(() => {
+            this.route.navigateByUrl('/products');
           });
         }
       });
