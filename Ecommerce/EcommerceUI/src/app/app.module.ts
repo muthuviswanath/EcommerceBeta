@@ -45,7 +45,7 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 
-import { Filter } from './Filter';
+
 import {sort} from './sort'
 
 

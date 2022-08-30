@@ -20,12 +20,10 @@ export class ProductsComponent implements OnInit {
   wishlist: any;
 
   IProducts:Array<any>=[];
-  prdData:any={}
+ 
   Id:number
   product:any
-  model:any={};
-  shoppingCartList: any;
-  wishlist: any;
+
   filter:string="";
   SortbyParam:string="";
   SortDirection:string="";
