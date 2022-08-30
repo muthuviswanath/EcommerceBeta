@@ -4,13 +4,13 @@
 <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 		<div class="row">
 			<div class="product--green" *ngFor="let prd of productList | ProductNameSearch: searchText;" >
-				<div class='product_inner'>	 
+				<div class='product_inner'>
 				<img src={{prd.imagepath}}  routerLink="/product-detail/{{prd.productid}}" width='300' alt="prdimg">
 				<h3>{{prd.productname}}</h3>
 				<p>{{ prd.productrating }}</p>
 				<p>{{ prd.price | currency: "INR" }}</p>
 				<p>{{ prd.productofferprice | currency: "INR" }}</p>
-				<button (click)="submit(prd.productid)">Add to basket</button>
+				<button (click)="submit(prd.productid)">Add to Cart</button>
 				<button (click)="submittowishlist(prd.productid)">Add to wishlist</button>
 	 			</div>
   			</div>
@@ -18,4 +18,3 @@
 
 
 
- 

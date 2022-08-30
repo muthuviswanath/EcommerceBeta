@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
   model: any = {};
   shoppingCartList: any;
   wishlist: any;
-  
+
   IProducts:Array<any>=[];
   Id:number
   product:any
