@@ -10,6 +10,14 @@ export class ProductService implements OnInit {
   public data: any = {};
   public pid: any;
 
+  // productid:any;
+  // public data:any={}
+  // setOptions(option,value){
+  //   this.data[option]=value;
+  // }
+  // getOptions(){
+  //   return this.data;
+  // }
   constructor(private http: HttpClient) {}
   setOptions(option: any, value: any) {
     this.data[option] = value;
@@ -51,5 +59,64 @@ getProductdetail(ID: number) {
 update(id:number,data:any){
 
 }
+
+addProduct(data: any) {
+
+  const httpOptions = {
+
+    headers: new HttpHeaders({
+
+      'Content-Type': 'application/json; charset=utf-8',
+
+    }),
+
+  };
+  
+
+  return this.http.post<any>(
+
+    this.baseurl + 'Products',
+
+    JSON.stringify(data),
+
+    httpOptions
+
+  );
+
+
+  }
+
+  deleteProduct(id:any)
+  {
+    const httpOptions = {
+
+      headers: new HttpHeaders({
+  
+        'Content-Type': 'application/json; charset=utf-8',
+  
+      }),
+  
+    };
+    return this.http.delete(this.baseurl+"Products/"+id,httpOptions);
+
+  }
+
+  updateProduct(id:any,data:any)
+  {
+    const httpOptions = {
+
+      headers: new HttpHeaders({
+  
+        'Content-Type': 'application/json; charset=utf-8',
+  
+      }),
+  
+    };
+    console.log(data);
+
+    return this.http.put(this.baseurl+"Products/"+id,data,httpOptions);
+  }
+
+
 
 }
