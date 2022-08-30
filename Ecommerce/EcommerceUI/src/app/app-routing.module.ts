@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from './Components/pages/product-details/prod
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
 import { ProductsComponent } from './Components/Products/products.component';
+import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'add-product',component:AddProductComponent},
    {path:'product/:id',component:ProductsComponent},
   {path:'product-detail/:id',component:ProductDetailsComponent},
-  {path:'products',component:ProductsComponent}
+  {path:'products',component:ProductsComponent},
+  {path:'update-product/:id',component:UpdateProductComponent}
 ];
 
 @NgModule({

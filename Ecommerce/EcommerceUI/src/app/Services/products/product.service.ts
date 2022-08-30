@@ -98,24 +98,22 @@ addProduct(data: any) {
 
   }
 
-  // updateProduct(id:Number,data:any)
-  // {
-  //   const httpOptions = {
+  updateProduct(id:any,data:any)
+  {
+    const httpOptions = {
 
-  //     headers: new HttpHeaders({
+      headers: new HttpHeaders({
   
-  //       'Content-Type': 'application/json; charset=utf-8',
+        'Content-Type': 'application/json; charset=utf-8',
   
-  //     }),
+      }),
   
-  //   };
-  //   return this.http.put(this.baseurl+"Products/"+id,data,httpOptions);
-  // }
+    };
+    console.log(data);
 
-  public getProductById(productid:any){
-
-    return this.http.get(`${this.baseurl}Products/${productid}`);
-  
+    return this.http.put(this.baseurl+"Products/"+id,data,httpOptions);
   }
+
+
 
 }
