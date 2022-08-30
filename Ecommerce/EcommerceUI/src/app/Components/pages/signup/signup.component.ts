@@ -7,18 +7,14 @@ import { Iuser } from 'src/app/Interface/Iuser';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-
-  constructor(private service: UserService) { }
-    model: any = {};
+  constructor(private service: UserService) {}
+  model: any = {};
   ngOnInit(): void {}
 
-
-  public signUp():void {
-      
+  public signUp(): void {
     this.service.addUser(this.model).subscribe();
-   
   }
 }
