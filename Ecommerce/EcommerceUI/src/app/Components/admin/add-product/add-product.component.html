@@ -1,0 +1,78 @@
+<p>add-product works!</p>
+<div class="container">
+    <form control="" id="contact"  class="form-group" [formGroup]="productForm">
+      <h3>Welcome Admin!!</h3>
+      <h4>Add Product</h4>
+      <fieldset>
+        <input
+          placeholder="Product name"
+          type="text"
+          class="form__input"
+          formControlName="productname"
+        />
+      </fieldset>
+      <fieldset>
+        <input placeholder="Quantity" type="text"  class="form__input" formControlName="quantity"/>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Price" type="text"  class="form__input" formControlName="price" />
+      </fieldset>
+      <fieldset>
+        <input
+          placeholder="Image Path"
+          type="text"
+          class="form__input"
+          formControlName="imagepath"
+        />
+      </fieldset>
+      <fieldset>
+        <input
+          placeholder="Product Rating"
+          type="text"
+          class="form__input"
+          formControlName="productrating"
+        />
+      </fieldset>
+      <fieldset>
+        <input
+          type="text"
+          placeholder="Product Offer Price"
+          class="form__input"
+          formControlName="productofferprice"
+        />
+      </fieldset>
+      <label>Product Description</label>
+      <fieldset>
+        <input placeholder="Display" type="text"  class="form__input" formControlName="display"/>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Memory" type="text"  class="form__input" formControlName="memory"/>
+      </fieldset>
+      <fieldset>
+        <input
+          placeholder="Processor"
+          type="text"
+          class="form__input"
+          formControlName="processor"
+        />
+      </fieldset>
+      <fieldset>
+        <input placeholder="Camera" type="text"  class="form__input" formControlName="camera" />
+      </fieldset>
+      <fieldset>
+        <input placeholder="Battery" type="text"  class="form__input" formControlName="battery" />
+      </fieldset>
+      <fieldset>
+        <input placeholder="Security" type="text"  class="form__input" formControlName="security"/>
+      </fieldset>
+  
+      <fieldset>
+        <input
+          type="submit"
+          value="Add Product"
+          class="btn btn-primary"
+          (click)="submit()"
+        />
+      </fieldset>
+    </form>
+  </div>

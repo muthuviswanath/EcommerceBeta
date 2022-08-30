@@ -1,0 +1,83 @@
+<p>add-product works!</p>
+<div class="container">
+    <form control="" id="contact"  class="form-group">
+      <h3>Welcome Admin!!</h3>
+      <h4>Add Product</h4>
+      <fieldset>
+        <input
+          placeholder="Product name"
+          name="Product name"
+          type="text"
+          class="form__input"
+          [(ngModel)]="productData.productname"
+        />
+      </fieldset>
+      <fieldset>
+        <input name="Quantity" placeholder="Quantity" type="text"  class="form__input" [(ngModel)]="productData.quantity"/>
+      </fieldset>
+      <fieldset>
+        <input name="Price" placeholder="Price" type="text"  class="form__input" [(ngModel)]="productData.price" />
+      </fieldset>
+      <fieldset>
+        <input
+        name="Image Path"
+          placeholder="Image Path"
+          type="text"
+          class="form__input"
+          [(ngModel)]="productData.imagepath"
+        />
+      </fieldset>
+      <fieldset>
+        <input
+        name="Product Rating"
+          placeholder="Product Rating"
+          type="text"
+          class="form__input"
+          [(ngModel)]="productData.productrating"
+        />
+      </fieldset>
+      <fieldset>
+        <input
+          type="text"
+          name="Product Offer Price"
+          placeholder="Product Offer Price"
+          class="form__input"
+          [(ngModel)]="productData.productofferprice"
+        />
+      </fieldset>
+      <label>Product Description</label>
+      <fieldset>
+        <input name="Display" placeholder="Display" type="text"  class="form__input" [(ngModel)]="productData.display"/>
+      </fieldset>
+      <fieldset>
+        <input name="Memory" placeholder="Memory" type="text"  class="form__input" [(ngModel)]="productData.memory"/>
+      </fieldset>
+      <fieldset>
+        <input
+        name="Processor"
+          placeholder="Processor"
+          type="text"
+          class="form__input"
+          [(ngModel)]="productData.processor"
+        />
+      </fieldset>
+      <fieldset>
+        <input name="Camera"placeholder="Camera" type="text"  class="form__input" [(ngModel)]="productData.camera" />
+      </fieldset>
+      <fieldset>
+        <input name="Battery"placeholder="Battery" type="text"  class="form__input" [(ngModel)]="productData.battery" />
+      </fieldset>
+      <fieldset>
+        <input name="Security"placeholder="Security" type="text"  class="form__input" [(ngModel)]="productData.security"/>
+      </fieldset>
+  
+      <fieldset>
+        <input
+          type="submit"
+          value="Add Product"
+          class="btn btn-primary"
+          (click)="update()"
+        />
+      </fieldset>
+    </form>
+  </div>
