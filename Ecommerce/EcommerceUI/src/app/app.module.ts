@@ -36,6 +36,9 @@ import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishl
 import { Filter } from './Filter';
 import { MatCardModule } from '@angular/material/card';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
+import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
+import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
+import { Filter } from './Filter';
 
 import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 
@@ -58,8 +61,7 @@ import { BrowserModule } from '@angular/platform-browser';
     WishlistContainerComponent,
     WishlistItemComponent,
     SearchComponent,
-    Filter,
-    SearchComponent,
+    Filter
     HomeComponent,
     CarouselComponent,
   ],
