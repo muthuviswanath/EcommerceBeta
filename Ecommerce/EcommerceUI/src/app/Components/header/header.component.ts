@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,17 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(private shoppingcartservice: ShoppingCartService) {}
+  quantity: number;
+  userId: number;
+  shoppingCartList: any;
+  ngOnInit(): void {
+    this.userId = +localStorage.getItem('userid');
+    this.shoppingcartservice
+      .getAllShoppingCartProductOfUser(this.userId)
+      .subscribe((res) => {
+        this.shoppingCartList = res;
+        this.quantity = this.shoppingCartList.length;
+      });
+  }
 }

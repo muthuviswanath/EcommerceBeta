@@ -13,7 +13,12 @@ import { Filter } from 'src/app/Filter';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  productList: IProducts[]=[];
+  productList: IProducts[] = [];
+  prdData: any = {};
+  model: any = {};
+  shoppingCartList: any;
+  wishlist: any;
+
   IProducts:Array<any>=[];
   prdData:any={}
   Id:number
