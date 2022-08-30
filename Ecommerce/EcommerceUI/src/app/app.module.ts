@@ -35,10 +35,7 @@ import { WishlistContainerComponent } from './Components/wishlist/wishlist-conta
 import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishlist-item.component';
 import { Filter } from './Filter';
 import { MatCardModule } from '@angular/material/card';
-import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
-import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
-import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
-import { Filter } from './Filter';
+
 
 import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 
@@ -46,6 +43,7 @@ import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-c
 import { HomeComponent } from './Components/home/home.component';
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 
 @NgModule({
   declarations: [
@@ -61,9 +59,9 @@ import { BrowserModule } from '@angular/platform-browser';
     WishlistContainerComponent,
     WishlistItemComponent,
     SearchComponent,
-    Filter
+    Filter,
     HomeComponent,
-    CarouselComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
