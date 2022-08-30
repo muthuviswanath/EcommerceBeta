@@ -27,7 +27,7 @@ import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.servi
 import { UserService } from './Services/user/user.service';
 
 import { SignupService } from './Services/signup/signup.service';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 
 import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
@@ -66,7 +66,7 @@ import { BrowserModule } from '@angular/platform-browser';
     HttpClientModule,
     MatCardModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     ProductService,

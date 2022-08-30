@@ -32,7 +32,7 @@ html, body {
 }
 
 .product--green {
-  background: linear-gradient(-45deg, #70C1B3 50%, rgba(255, 255, 255, 0.5) 50%);
+  background: linear-gradient(-45deg,rgb(219, 124, 142)50%, rgba(255, 255, 255, 0.5) 50%);
 }
 
 
@@ -51,7 +51,7 @@ html, body {
 }
 .product_inner button {
   border: 1px solid rgba(255, 255, 255, 0.5);
-  color: rgb(133, 74, 74);
+  color: rgb(255, 255, 255);
   border-radius: 3px;
   padding: 1em 3em;
   margin: 1em 0 0 0;
