@@ -9,15 +9,6 @@ import { IProducts } from '../../Interface/IProducts';
 export class ProductService implements OnInit {
   public data: any = {};
   public pid: any;
-
-  // productid:any;
-  // public data:any={}
-  // setOptions(option,value){
-  //   this.data[option]=value;
-  // }
-  // getOptions(){
-  //   return this.data;
-  // }
   constructor(private http: HttpClient) {}
   setOptions(option: any, value: any) {
     this.data[option] = value;

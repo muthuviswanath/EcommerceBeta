@@ -13,6 +13,9 @@ namespace EcommerceBetaAPI.Dto
         public string Username { get; set; }
         public string EmailId { get; set; }
         public string Address { get; set; }
+
+        public string Imagepath { get; set; }
+        public string ProductName { get; set; }
         public Product Product { get; set; }
     }
 }

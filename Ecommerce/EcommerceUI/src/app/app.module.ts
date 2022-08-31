@@ -47,6 +47,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import { Filter } from './Filter';
+import { OrderHistoryComponent } from './Components/admin/order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { Filter } from './Filter';
     AddProductComponent,
     UpdateProductComponent,
     HomeComponent,
-    CarouselComponent
+    CarouselComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,
