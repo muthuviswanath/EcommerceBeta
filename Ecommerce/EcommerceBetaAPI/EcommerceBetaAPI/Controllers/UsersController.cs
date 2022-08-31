@@ -6,25 +6,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EcommerceBetaAPI.Models;
+using Microsoft.AspNetCore.Authorization;
+using EcommerceBetaAPI.Repository;
 
 namespace EcommerceBetaAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly EcommerceContext _context;
-
-        public UsersController(EcommerceContext context)
+        private readonly IJWTManagerRepository _jwtManager;
+        public UsersController(EcommerceContext context, IJWTManagerRepository jWTManager)
         {
             _context = context;
+            _jwtManager = jWTManager;
         }
 
         // GET: api/Users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u=>u.Product).ToListAsync();
+            return await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u => u.Product).ToListAsync();
         }
 
         // GET: api/Users/5
@@ -39,6 +43,19 @@ namespace EcommerceBetaAPI.Controllers
             }
 
             return user;
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("authenticate")]
+        public IActionResult Authenticate(Users usersdata)
+        {
+            var token = _jwtManager.Authenticate(usersdata);
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+            return Ok(token);
         }
 
         // PUT: api/Users/5

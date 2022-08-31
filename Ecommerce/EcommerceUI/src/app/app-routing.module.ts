@@ -7,6 +7,7 @@ import { WishlistContainerComponent } from './Components/wishlist/wishlist-conta
 import { ProductsComponent } from './Components/Products/products.component';
 import { HomeComponent } from './Components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'product/:id', component: ProductsComponent },
   { path: 'product-detail/:id', component: ProductDetailsComponent },
-  { path: 'products', component: ProductsComponent },
+  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent },
 ];
 
