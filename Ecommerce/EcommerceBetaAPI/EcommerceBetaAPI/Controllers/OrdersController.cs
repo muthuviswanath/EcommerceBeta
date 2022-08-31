@@ -31,16 +31,17 @@ namespace EcommerceBetaAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ordersDTO>>> GetOrders()
         {
-           var order = _context.Orders.Include(o => o.User).Include(o => o.Product).Select(x =>
-           new ordersDTO
-          {
-              UserId=x.Userid,
-              OrderId=x.Orderid,
-              OrderDate=x.Orderdate,
-             TotalPrice=x.TotalPrice,
-              Product=x.Product,
+            var order = _context.Orders.Include(o => o.User).Include(o => o.Product).Select(x =>
+            new ordersDTO
+            {
+                UserId = x.Userid,
+                OrderId = x.Orderid,
+                OrderDate = x.Orderdate,
+                TotalPrice = x.TotalPrice,
+                ProductName = x.Product.Productname,
+                Imagepath=x.Product.Imagepath,
 
-          });
+            }) ;
           var value = await order.ToListAsync();
            return value;
         }
