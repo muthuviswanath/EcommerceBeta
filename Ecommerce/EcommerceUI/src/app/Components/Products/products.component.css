@@ -1,7 +1,7 @@
 
 
 * {
-  margin: 0;
+  margin:0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Open Sans Condensed", sans-serif;
@@ -58,6 +58,7 @@ html, body {
   background: none;
   cursor: pointer;
   transition: background ease-in 0.25s;
+  width: 200px;
 }
 /* .product--green:hover{
   transform: scale(1.5);
@@ -78,24 +79,10 @@ html, body {
   color: #2B2D42;
 }
 p{
-  padding: 8px;
+  padding: 8px ;
   font-size: large;
   font-family: 'Times New Roman', Times, serif;
   color: darkslategrey;
 }
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-.up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
 
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
 

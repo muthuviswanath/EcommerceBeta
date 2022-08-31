@@ -18,15 +18,12 @@ export class ProductsComponent implements OnInit {
   model: any = {};
   shoppingCartList: any;
   wishlist: any;
-
   IProducts:Array<any>=[];
- 
   Id:number
   product:any
-
   filter:string="";
   SortbyParam:string="";
-  SortDirection:string="";
+  SortDirection:string="asc";
   constructor(
     private service:ProductService,
     private route: Router,
@@ -91,7 +88,6 @@ export class ProductsComponent implements OnInit {
   searchText:string='';
   onSearchTextEntered(searchValue:string){
     this.searchText=searchValue;
-    // console.log(this.searchText);
   }
   onSortDirection(){
     if(this.SortDirection==="desc"){
