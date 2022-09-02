@@ -1,3 +1,4 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import {
   HttpClient,
   HttpErrorResponse,
@@ -15,21 +16,35 @@ import { IAuthenticatedResponse } from 'src/app/Interface/IAuthenticatedResponse
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  constructor(
+    private service: LoginService,
+    private route: Router,
+    private http: HttpClient,
+    private jwtHelper: JwtHelperService
+  ) {}
+  ngOnInit() {}
   invalidLogin: boolean;
-  credentials: ILoginModel = { username: '', password: '' };
+  userid: any;
   login = (form: NgForm) => {
+    const credentials = {
+      username: form.value.username,
+      password: form.value.password,
+    };
     if (form.valid) {
       this.http
-        .post<IAuthenticatedResponse>(
-          'https://localhost:5001/api/auth/login',
-          this.credentials,
-          {
-            headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-          }
-        )
+        .post('http://localhost:5000/api/auth/login', credentials)
         .subscribe({
           next: (response: IAuthenticatedResponse) => {
             const token = response.token;
+            this.http
+              .get(
+                'http://localhost:5000/api/Users/Username/' +
+                  credentials.username
+              )
+              .subscribe((res) => {
+                this.userid = res;
+                localStorage.setItem('userid', this.userid);
+              });
             localStorage.setItem('jwt', token);
             this.invalidLogin = false;
             this.route.navigate(['/']);
@@ -38,38 +53,18 @@ export class LoginComponent implements OnInit {
         });
     }
   };
-  userData: any;
-  public formData: any = {};
-  username = new FormControl('');
-  password = new FormControl('');
-  constructor(
-    private service: LoginService,
-    private route: Router,
-    private formBuilder: FormBuilder,
-    private builder: FormBuilder,
-    private http: HttpClient
-  ) {}
-
-  ngOnInit(): void {
-    this.loginForm;
-  }
-  loginForm: FormGroup = this.builder.group({
-    username: this.username,
-    password: this.password,
-  });
-
-  checkLogin() {
-    this.formData = this.loginForm.value;
-    if (this.loginForm.valid) {
-      this.service.loginUser(this.loginForm.value).subscribe((res) => {
-        this.userData = res;
-        if (this.userData == null) {
-          this.route.navigateByUrl('/signup');
-        } else {
-          localStorage.setItem('userid', this.userData.userid);
-          this.route.navigateByUrl('/products');
-        }
-      });
-    }
-  }
+  // checkLogin() {
+  //   this.formData = this.loginForm.value;
+  //   if (this.loginForm.valid) {
+  //     this.service.loginUser(this.loginForm.value).subscribe((res) => {
+  //       this.userData = res;
+  //       if (this.userData == null) {
+  //         this.route.navigateByUrl('/signup');
+  //       } else {
+  //         localStorage.setItem('userid', this.userData.userid);
+  //         this.route.navigateByUrl('/products');
+  //       }
+  //     });
+  //   }
+  // }
 }

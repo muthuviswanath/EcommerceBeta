@@ -7,21 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EcommerceBetaAPI.Models;
 using Microsoft.AspNetCore.Authorization;
-using EcommerceBetaAPI.Repository;
 
 namespace EcommerceBetaAPI.Controllers
-{
-    [Authorize]
+{/*
+    [Authorize]*/
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly EcommerceContext _context;
-        private readonly IJWTManagerRepository _jwtManager;
-        public UsersController(EcommerceContext context, IJWTManagerRepository jWTManager)
+        public UsersController(EcommerceContext context)
         {
             _context = context;
-            _jwtManager = jWTManager;
         }
 
         // GET: api/Users
@@ -45,18 +42,21 @@ namespace EcommerceBetaAPI.Controllers
             return user;
         }
 
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("authenticate")]
-        public IActionResult Authenticate(Users usersdata)
+        //GET: api/Users/shubham
+        [HttpGet("Username/{username}")]
+        public int GetUserIdByName(string username)
         {
-            var token = _jwtManager.Authenticate(usersdata);
-            if (token == null)
+            var user = _context.Users.FirstOrDefault(u => u.Username.Equals(username));
+
+            if (user == null)
             {
-                return Unauthorized();
+                return 0;
             }
-            return Ok(token);
+
+            return user.Userid;
         }
+
+
 
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

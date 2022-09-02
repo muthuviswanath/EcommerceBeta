@@ -3,7 +3,8 @@ import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IProducts } from 'src/app/Interface/IProducts';
-import { ProductService } from 'src/app/Services/products/product.service';4
+import { ProductService } from 'src/app/Services/products/product.service';
+4;
 import { ActivatedRoute } from '@angular/router';
 import { Filter } from 'src/app/Filter';
 @Component({
@@ -18,9 +19,9 @@ export class ProductsComponent implements OnInit {
   shoppingCartList: any;
   wishlist: any;
 
-  IProducts:Array<any>=[];
-  Id:number
-  product:any
+  IProducts: Array<any> = [];
+  Id: number;
+  product: any;
   constructor(
     private service: ProductService,
     private route: Router,
@@ -37,9 +38,12 @@ export class ProductsComponent implements OnInit {
       this.productList = res;
     });
   }
-  public submit(prdid:any):void{
+  public submit(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
+    if (this.model.userid == 0) {
+      this.route.navigateByUrl('/login');
+    }
     this.model.quantity = 1;
     this.shoppingcartservice
       .getAllShoppingCartProductOfUser(this.model.userid)
@@ -62,9 +66,12 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-  public submittowishlist(prdid:any):void{
+  public submittowishlist(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
+    if (this.model.userid == 0) {
+      this.route.navigateByUrl('/login');
+    }
     this.wishlistservice
       .getAllWishlistProductsOfUser(this.model.userid)
       .subscribe((res) => {
@@ -85,9 +92,9 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-  searchText:string='';
-  onSearchTextEntered(searchValue:string){
-    this.searchText=searchValue;
+  searchText: string = '';
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
     // console.log(this.searchText);
   }
 }
