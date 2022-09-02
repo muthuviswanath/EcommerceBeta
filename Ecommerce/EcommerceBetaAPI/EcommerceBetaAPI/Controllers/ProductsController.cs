@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EcommerceBetaAPI.Models;
+using EcommerceBetaAPI.Dto;
+using Microsoft.CodeAnalysis;
 
 namespace EcommerceBetaAPI.Controllers
 {
@@ -75,12 +77,35 @@ namespace EcommerceBetaAPI.Controllers
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<ActionResult<IEnumerable<productDTO>>> PostProduct([FromBody] productDTO product)
         {
-            _context.Products.Add(product);
+            if (product is null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
+
+            //Console.WriteLine(product);
+
+            var productDetail = new Product
+            {
+                Productname = product.productname,
+                Quantity = product.quantity,
+                Price = product.price,
+                Imagepath = product.imagepath,
+                Productrating = product.productrating,
+                Productofferprice = product.productofferprice,
+                Display = product.display,
+                Memory = product.memory,
+                Processor = product.processor,
+                Camera = product.camera,
+                Battery = product.battery,
+                Security = product.security,
+
+            };
+            _context.Products.Add(productDetail);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduct", new { id = product.Productid }, product);
+            return Ok();
         }
 
         // DELETE: api/Products/5

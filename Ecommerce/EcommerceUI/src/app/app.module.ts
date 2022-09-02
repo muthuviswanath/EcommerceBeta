@@ -29,11 +29,13 @@ import { UserService } from './Services/user/user.service';
 import { SignupService } from './Services/signup/signup.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { ListProductComponent } from './Components/admin/list-product/list-product.component';
+import { AddProductComponent } from './Components/admin/add-product/add-product.component';
+import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
 
 import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
 
 import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishlist-item.component';
-import { Filter } from './Filter';
 import { MatCardModule } from '@angular/material/card';
 
 import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
@@ -43,6 +45,7 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { Filter } from './Filter';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -63,6 +66,9 @@ export function tokenGetter() {
     WishlistItemComponent,
     SearchComponent,
     Filter,
+    ListProductComponent,
+    AddProductComponent,
+    UpdateProductComponent,
     HomeComponent,
     CarouselComponent,
   ],

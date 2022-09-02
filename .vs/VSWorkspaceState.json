@@ -1,16 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Ecommerce",
-    "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI\\Models",
-    "\\Ecommerce\\EcommerceUI",
-    "\\Ecommerce\\EcommerceUI\\src",
-    "\\Ecommerce\\EcommerceUI\\src\\app",
-    "\\Ecommerce\\EcommerceUI\\src\\app\\Components",
-    "\\Ecommerce\\EcommerceUI\\src\\app\\Components\\shopping-cart",
-    "\\Ecommerce\\EcommerceUI\\src\\app\\Components\\shopping-cart\\shopping-cart-container",
-    "\\Ecommerce\\EcommerceUI\\src\\app\\Components\\shopping-cart\\shopping-cart-item"
+    "\\Ecommerce\\EcommerceBetaAPI",
+    "\\Ecommerce\\EcommerceBetaAPI\\EcommerceBetaAPI"
   ],
-  "SelectedNode": "\\Ecommerce\\EcommerceUI\\src\\app\\Components\\shopping-cart\\shopping-cart-item\\shopping-cart-item.component.ts",
+  "SelectedNode": "\\Ecommerce",
   "PreviewInSolutionExplorer": false
 }
