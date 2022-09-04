@@ -43,8 +43,8 @@ namespace EcommerceBetaAPI.Controllers
                 var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
                 var claims = new List<Claim> {
-                new Claim(ClaimTypes.Name,user.Username),
-                new Claim(ClaimTypes.Role,"Admin"),
+                new Claim(ClaimTypes.Name,user.Username)/*,
+                new Claim(ClaimTypes.Role,"Admin"),*/
                 };
 
                 var tokenOptions = new JwtSecurityToken(

@@ -24,7 +24,7 @@ namespace EcommerceBetaAPI.Controllers
 
         // GET: api/Carts
         [HttpGet]
-        [Authorize (Roles ="User")]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<cartsDTO>>> GetCarts()
         {
             // return await _context.Carts.Include(c => c.User).Include(c => c.Product).ToListAsync();

@@ -47,7 +47,9 @@ export class LoginComponent implements OnInit {
               });
             localStorage.setItem('jwt', token);
             this.invalidLogin = false;
-            this.route.navigate(['/']);
+            this.route
+              .navigate(['/products'])
+              .then(() => window.location.reload());
           },
           error: (err: HttpErrorResponse) => (this.invalidLogin = true),
         });

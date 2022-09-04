@@ -43,27 +43,28 @@ export class ProductsComponent implements OnInit {
     this.model.userid = +localStorage.getItem('userid');
     if (this.model.userid == 0) {
       this.route.navigateByUrl('/login');
-    }
-    this.model.quantity = 1;
-    this.shoppingcartservice
-      .getAllShoppingCartProductOfUser(this.model.userid)
-      .subscribe((res) => {
-        this.shoppingCartList = res;
-        let flag = 0;
-        for (let i = 0; i < this.shoppingCartList.length; i++) {
-          if (
-            this.model.productid == this.shoppingCartList[i].product.productid
-          ) {
-            flag = 1;
-            alert('This product is already added in your shopping cart.');
-            break;
+    } else {
+      this.model.quantity = 1;
+      this.shoppingcartservice
+        .getAllShoppingCartProductOfUser(this.model.userid)
+        .subscribe((res) => {
+          this.shoppingCartList = res;
+          let flag = 0;
+          for (let i = 0; i < this.shoppingCartList.length; i++) {
+            if (
+              this.model.productid == this.shoppingCartList[i].product.productid
+            ) {
+              flag = 1;
+              alert('This product is already added in your shopping cart.');
+              break;
+            }
           }
-        }
-        if (flag == 0)
-          this.service.addCart(this.model).subscribe(() => {
-            this.route.navigateByUrl('/products');
-          });
-      });
+          if (flag == 0)
+            this.service.addCart(this.model).subscribe(() => {
+              this.route.navigateByUrl('/products');
+            });
+        });
+    }
   }
 
   public submittowishlist(prdid: any): void {

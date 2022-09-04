@@ -18,12 +18,13 @@ export class HeaderComponent implements OnInit {
   shoppingCartList: any;
   ngOnInit(): void {
     this.userId = +localStorage.getItem('userid');
-    this.shoppingcartservice
-      .getAllShoppingCartProductOfUser(this.userId)
-      .subscribe((res) => {
-        this.shoppingCartList = res;
-        this.quantity = this.shoppingCartList.length;
-      });
+    if (this.userId != 0)
+      this.shoppingcartservice
+        .getAllShoppingCartProductOfUser(this.userId)
+        .subscribe((res) => {
+          this.shoppingCartList = res;
+          this.quantity = this.shoppingCartList.length;
+        });
   }
   isUserAuthenticated() {
     const token = localStorage.getItem('jwt');

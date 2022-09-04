@@ -8,10 +8,16 @@
               <a href="#"><i class="fa fa-user"></i> My Account</a>
             </li>
             <li>
+              <a href="/products"><i class="fa fa-heart"></i> Products</a>
+            </li>
+            <li>
               <a href="/wishlist"><i class="fa fa-heart"></i> Wishlist</a>
             </li>
             <li>
-              <a href="/shoppingcart"><i class="fa fa-user"></i> My Cart</a>
+              <a href="/shoppingcart">
+                <i class="fa fa-shopping-cart"></i>My Cart
+                <!-- <span class="product-count">{{ quantity }}</span> -->
+              </a>
             </li>
 
             <li *ngIf="!isUserAuthenticated()">
@@ -31,27 +37,6 @@
 
 <!-- End header area -->
 
-<header>
-  <h1 class="logo">
-    <img src="assets/images/applogo.png" height="20px" />
-  </h1>
-  <nav>
-    <button><a href="/home" style="color: rgb(255, 255, 255)">Home</a></button>
-
-    <button>
-      <a routerLink="/products" style="color: rgb(255, 255, 255)">Products</a>
-    </button>
-
-    <button>Contact</button>
-  </nav>
-  <div class="shopping-item">
-    <a href="/shoppingcart"
-      >Cart
-      <i class="fa fa-shopping-cart"></i>
-      <span class="product-count">{{ quantity }}</span></a
-    >
-  </div>
-</header>
 <div>
   <svg
     class="waves"

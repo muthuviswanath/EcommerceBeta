@@ -43,8 +43,8 @@ namespace EcommerceBetaAPI
                     ValidateAudience = false,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "http://localhost:5001",
-                    ValidAudience = "http://localhost:5001",
+                    ValidIssuer = "http://localhost:5000",
+                    ValidAudience = "http://localhost:5000",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("symmetricsecretkey$567"))
                 };
             });
@@ -53,7 +53,7 @@ namespace EcommerceBetaAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EcommerceBetaAPI", Version = "v1" });
             });
-            /*services.AddCors(options =>
+            services.AddCors(options =>
             {
                 options.AddPolicy("EnableCORS", builder =>
                 {
@@ -61,7 +61,7 @@ namespace EcommerceBetaAPI
                     .AllowAnyMethod().
                     AllowAnyOrigin();
                 });
-            });*/
+            });
             services.AddDbContext<EcommerceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 
 
@@ -80,10 +80,9 @@ namespace EcommerceBetaAPI
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseAuthorization();/*
-            app.UseCors("EnableCORS");*/
-            app.UseCors(mycor => mycor.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-
+            app.UseAuthorization();
+            app.UseCors("EnableCORS");/*
+            app.UseCors(mycor => mycor.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());*/
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

@@ -42,7 +42,7 @@ namespace EcommerceBetaAPI.Controllers
             return user;
         }
 
-        //GET: api/Users/shubham
+        //GET: api/Users/Username/shubham
         [HttpGet("Username/{username}")]
         public int GetUserIdByName(string username)
         {
