@@ -14,8 +14,9 @@ export class HeaderComponent implements OnInit {
     private jwtHelper: JwtHelperService
   ) {}
   quantity: number;
-  userId: number;
+  userId: any;
   shoppingCartList: any;
+
   ngOnInit(): void {
     this.userId = +localStorage.getItem('userid');
     if (this.userId != 0)

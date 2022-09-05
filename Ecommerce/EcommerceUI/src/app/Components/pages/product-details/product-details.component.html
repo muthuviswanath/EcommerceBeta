@@ -1,22 +1,21 @@
-
 <div class="row">
-<div class='product--green'>
-  <div class='product_inner'>
-    <img src="{{Product.imagepath}}" width='300'>
-    <h2>{{Product.productname}}</h2>
-    <ul>
-      <li>{{Product.display}}</li>
-      <li>{{Product.memory}}</li>
-      <li>{{Product.processor}}</li>
-      <li>{{Product.camera}}</li>
-      <li>{{Product.battery}}</li>
-      <li>{{Product.security}}</li>
-    </ul>
-    <button (click)="submittocart(Product.productid)">Add to cart</button>
-    <button (click)="submittowishlist(Product.productid)">Add to wishlist</button>
-    
-  </div>
-  
-</div>
-</div>
+  <div class="product--green">
+    <div class="product_inner">
+      <img src="{{ Product.imagepath }}" width="300" />
+      <h2>{{ Product.productname }}</h2>
+      <ul>
+        <li>{{ Product.display }}</li>
+        <li>{{ Product.memory }}</li>
+        <li>{{ Product.processor }}</li>
+        <li>{{ Product.camera }}</li>
+        <li>{{ Product.battery }}</li>
+        <li>{{ Product.security }}</li>
+      </ul>
+      <button (click)="submittocart(Product.productid)">Add to cart</button>
 
+      <button (click)="submittowishlist(Product.productid)">
+        Add to wishlist
+      </button>
+    </div>
+  </div>
+</div>

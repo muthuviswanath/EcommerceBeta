@@ -5,10 +5,9 @@
         <div class="user-menu">
           <ul>
             <li>
-              <a href="#"><i class="fa fa-user"></i> Home</a>
-            </li>
-            <li>
-              <a href="/products"><i class="fa fa-heart"></i> Products</a>
+              <a href="/update-profile"
+                ><i class="fa fa-user"></i> My Account</a
+              >
             </li>
             <li>
               <a href="/wishlist"><i class="fa fa-heart"></i> Wishlist</a>
@@ -36,6 +35,28 @@
 </div>
 
 <!-- End header area -->
+<header>
+  <h1 class="logo">
+    <img src="assets/images/applogo.png" height="20px" />
+  </h1>
+  <nav>
+    <button><a href="/home" style="color: rgb(255, 255, 255)">Home</a></button>
+
+    <button>
+      <a routerLink="/products" style="color: rgb(255, 255, 255)">Products</a>
+    </button>
+
+    <button><a routerLink="/contact" style="color: rgb(255, 255, 255)">Contact</a></button>
+  </nav>
+  <div class="shopping-item">
+    <a href="/shoppingcart"
+      >Cart
+      <i class="fa fa-shopping-cart"></i>
+      <span class="product-count">{{ quantity }}</span></a
+    >
+  </div>
+</header>
+
 
 <div>
   <svg

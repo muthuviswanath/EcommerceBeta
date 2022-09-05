@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IProducts } from 'src/app/Interface/IProducts';
 import { ProductService } from 'src/app/Services/products/product.service';
-4;
 import { ActivatedRoute } from '@angular/router';
 import { Filter } from 'src/app/Filter';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -18,26 +18,25 @@ export class ProductsComponent implements OnInit {
   model: any = {};
   shoppingCartList: any;
   wishlist: any;
-
   IProducts: Array<any> = [];
   Id: number;
   product: any;
+  filter: string = '';
+  SortbyParam: string = '';
+  SortDirection: string = 'asc';
   constructor(
     private service: ProductService,
     private route: Router,
     private shoppingcartservice: ShoppingCartService,
     private wishlistservice: WishlistService
-  ) {
-    let prdRecord = this.service.getOptions();
-    // this.prdData = this.service
-    //   .getProductById(prdRecord.productid)
-    //   .subscribe((res) => (this.prdData = res));
-  }
+  ) {}
+
   ngOnInit(): void {
     this.service.getAllProducts().subscribe((res) => {
       this.productList = res;
     });
   }
+
   public submit(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
@@ -96,6 +95,12 @@ export class ProductsComponent implements OnInit {
   searchText: string = '';
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
-    // console.log(this.searchText);
+  }
+  onSortDirection() {
+    if (this.SortDirection === 'desc') {
+      this.SortDirection = 'asc';
+    } else {
+      this.SortDirection = 'desc';
+    }
   }
 }

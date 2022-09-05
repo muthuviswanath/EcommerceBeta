@@ -27,14 +27,12 @@ import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.servi
 import { UserService } from './Services/user/user.service';
 
 import { SignupService } from './Services/signup/signup.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { SearchComponent } from './search/search.component';
 import { ListProductComponent } from './Components/admin/list-product/list-product.component';
 import { AddProductComponent } from './Components/admin/add-product/add-product.component';
 import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
-
 import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
-
 import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishlist-item.component';
 import { MatCardModule } from '@angular/material/card';
 
@@ -46,10 +44,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { Filter } from './Filter';
-
+import { sort } from './sort';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export function tokenGetter() {
   return localStorage.getItem('jwt');
 }
+
 
 @NgModule({
   declarations: [
@@ -69,8 +70,11 @@ export function tokenGetter() {
     ListProductComponent,
     AddProductComponent,
     UpdateProductComponent,
+    sort,
     HomeComponent,
     CarouselComponent,
+    UpdateProfileComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -86,6 +90,7 @@ export function tokenGetter() {
         disallowedRoutes: [],
       },
     }),
+
   ],
   providers: [
     ProductService,

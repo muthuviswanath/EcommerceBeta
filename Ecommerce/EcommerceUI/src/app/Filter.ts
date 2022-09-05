@@ -8,7 +8,9 @@ import { Pipe, PipeTransform } from "@angular/core";
 export class Filter implements PipeTransform{
     
     public transform(value: any[], searchtext:string) {
-        return searchtext.length > 2 ? value.filter( res => res.productname.toLowerCase().includes(searchtext.toLowerCase())) : value;
+        return searchtext.length > 1 ? value.filter( res => res.productname.toLowerCase().includes(searchtext.toLowerCase())) : value;
     }
+  
+
   
 }
