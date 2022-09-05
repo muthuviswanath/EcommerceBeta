@@ -39,8 +39,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {path:'update-product/:id',component:UpdateProductComponent},
   { path: 'update-profile', component:UpdateProfileComponent },
- 
-  ,
   {path:'order-history',component:OrderHistoryComponent},
   {path:'contact',component:ContactComponent}
 
