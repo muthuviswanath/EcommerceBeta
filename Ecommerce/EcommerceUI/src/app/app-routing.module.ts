@@ -11,6 +11,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
 import { OrderHistoryComponent } from './Components/admin/order-history/order-history.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'home', component: HomeComponent },
   {path:'update-product/:id',component:UpdateProductComponent},
-  {path:'order-history',component:OrderHistoryComponent}
+  {path:'order-history',component:OrderHistoryComponent},
+  {path:'contact',component:ContactComponent}
 
 ];
 
