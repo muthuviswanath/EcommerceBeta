@@ -1,28 +1,41 @@
 <table>
-    <thead>
-      <tr>
-        <th>Product Id</th>
-        <th>Product Image</th>
-        <th>Product Name</th>
-        <th>Product Price</th>
-        <th>Offer Price</th>
-        <th>Quantity</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let prd of productList">
-        <td>{{ prd.productid }}</td>
-        <td><img src="{{ prd.imagepath }} "  height="10%" width="60%"/></td>
-        <td>{{ prd.productname }}</td>
-        <td>{{ prd.price }}</td>
-        <td>{{ prd.productofferprice }}</td>
-        <td>{{ prd.quantity }}</td>
-        <td>
-          <button type="button" class="btn btn-success " style="background-color: #5e549b ;" routerLink="/update-product/{{prd.productid}}">Update</button>
-          <button type="button" class="btn btn-danger" style="background-color: rgb(251, 99, 126);" (click)="delete(prd.productid)" >Delete</button>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th>Product Id</th>
+      <th>Product Image</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Offer Price</th>
+      <th>Quantity</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prd of productList">
+      <td>{{ prd.productid }}</td>
+      <td><img src="{{ prd.imagepath }} " height="70px" width="60%" /></td>
+      <td>{{ prd.productname }}</td>
+      <td>{{ prd.price }}</td>
+      <td>{{ prd.productofferprice }}</td>
+      <td>{{ prd.quantity }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-success"
+          style="background-color: #5e549b"
+          routerLink="/update-product/{{ prd.productid }}"
+        >
+          Update
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          style="background-color: rgb(251, 99, 126)"
+          (click)="delete(prd.productid)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

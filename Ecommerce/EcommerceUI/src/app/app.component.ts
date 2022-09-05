@@ -12,16 +12,29 @@ export class AppComponent {
   title = 'EcommerceUI';
   showHeader: boolean=true;
   router: any;
-
+  user: any='';
 
   constructor(router: Router) {
-    // router.events.forEach((event) => {
-    //   if(event instanceof NavigationStart) {
-    //     this.showHeader = event.url !== "/admin";
-    //   }
-    // });
+    router.events.forEach((event) => {
+      if(event instanceof NavigationStart) {
+        this.showHeader = event.url !== "/admin";
+      }
+    });
 
   }
+  // isAdmin() {
+
+  //   if (this.user == 'admin') {
+
+  //     return false;
+
+  //   } else {
+
+  //     return true;
+
+  //   }
+
+  // }
 
 
 }
