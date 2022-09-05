@@ -60,6 +60,7 @@ export class ProductsComponent implements OnInit {
           }
           if (flag == 0)
             this.service.addCart(this.model).subscribe(() => {
+              alert('Added to cart');
               this.route.navigateByUrl('/products');
             });
         });
@@ -86,6 +87,7 @@ export class ProductsComponent implements OnInit {
         }
         if (flag == 0) {
           this.service.addwishlist(this.model).subscribe(() => {
+            alert('Added to wishlist');
             this.route.navigateByUrl('/products');
           });
         }

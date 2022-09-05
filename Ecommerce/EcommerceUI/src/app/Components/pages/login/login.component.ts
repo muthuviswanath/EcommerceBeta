@@ -48,30 +48,24 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('jwt', token);
             this.invalidLogin = false;
             if (
-
               credentials.username === 'admin' &&
-
               credentials.password === 'admin'
-
             ) {
+              localStorage.setItem('userRole', 'Admin');
 
-              localStorage.setItem('userRole','Admin');
-
-              this.route.navigate(['/admin']);
-
+              this.route
+                .navigate(['/admin'])
+                .then(() => window.location.reload());
             } else {
-
               this.route
 
                 .navigate(['/home'])
 
                 .then(() => window.location.reload());
-
             }
           },
           error: (err: HttpErrorResponse) => (this.invalidLogin = true),
         });
     }
   };
-
 }

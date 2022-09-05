@@ -1,11 +1,8 @@
-
 <div class="header-area">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <div class="user-menu">
-
-        </div>
+        <div class="user-menu"></div>
       </div>
     </div>
   </div>
@@ -18,20 +15,24 @@
     <img src="assets/images/applogo.png" height="20px" />
   </h1>
 
-  <button class="btn" style="float: right;">
+  <button class="btn" style="float: right">
     <a routerLink="/admin" style="color: rgb(255, 255, 255)">Home</a>
   </button>
-  <button class="btn" style="float: right;">
-    <a routerLink="/add-product" style="color: rgb(255, 255, 255)">Add Product</a>
+  <button class="btn" style="float: right">
+    <a routerLink="/add-product" style="color: rgb(255, 255, 255)"
+      >Add Product</a
+    >
   </button>
 
   <button class="btn">
-    <a routerLink="/order-history" style="color: rgb(255, 255, 255)">Order History</a>
-  </button>
-  <button class="btn" style="float: right;">
-    <a routerLink="/login" style="color: rgb(255, 255, 255)">Logout</a>
+    <a routerLink="/order-history" style="color: rgb(255, 255, 255)"
+      >Order History</a
+    >
   </button>
 
+  <button class="btn" (click)="logOut()" style="float: right">
+    <a style="color: rgb(255, 255, 255)">Logout</a>
+  </button>
 </header>
 <div>
   <svg

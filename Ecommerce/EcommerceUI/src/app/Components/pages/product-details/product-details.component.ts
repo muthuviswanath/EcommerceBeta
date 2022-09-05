@@ -33,15 +33,13 @@ export class ProductDetailsComponent implements OnInit {
   }
   public submittocart(pid: any): void {
     this.Product.productid = pid;
-    this.Product.userid = 3;
-    console.log(this.Product);
+    this.Product.userid = +localStorage.getItem('userid');
     alert('Added to cart');
     this.service.addCart(this.Product).subscribe();
   }
   public submittowishlist(pid: any): void {
     this.Product.productid = pid;
-    this.Product.userid = 3;
-    console.log(this.Product);
+    this.Product.userid = +localStorage.getItem('userid');
     alert('Added to wishlist');
     this.service.addwishlist(this.Product).subscribe();
   }
