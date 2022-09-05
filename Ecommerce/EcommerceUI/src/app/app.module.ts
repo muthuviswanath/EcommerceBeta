@@ -47,6 +47,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import { Filter } from './Filter';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { AdminHeaderComponent } from './Components/admin-dashboard/admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { Filter } from './Filter';
     AddProductComponent,
     UpdateProductComponent,
     HomeComponent,
-    CarouselComponent
+    CarouselComponent,
+    AdminDashboardComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,

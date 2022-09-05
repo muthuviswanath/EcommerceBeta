@@ -1,6 +1,6 @@
-<div class="container" style="padding-top: 6rem" *ngIf="cart">
+<div class="container" style="padding-top: 6rem; margin-bottom: 60px; " *ngIf="cart">
   <div class="card shopping-cart">
-    <div class="card-header bg-dark text-light">
+    <div class="card-header text-light" style="background-color: rgb(90, 136, 202);">
       <i class="fa fa-shopping-cart pr-2" aria-hidden="true"></i>
       Shopping cart
       <div class="clearfix"></div>
@@ -14,7 +14,7 @@
         There is no Item in the Cart
       </h2>
     </div>
-    <div class="card-footer">
+    <div class="card-footer" style=" background-color:  rgb(90, 136, 202,0.4);">
       <div class="pull-right" style="margin: 10px">
         <div class="pull-right" style="margin: 5px">
           <h5>Total price: {{ totalPrice }} INR</h5>
@@ -23,6 +23,7 @@
         <div class="pull-right" style="margin: 5px">
           <input
             class="btn btn-info"
+            style="background-color: rgb(251, 99, 126);"
             type="submit"
             (click)="checkOut()"
             value="Checkout"

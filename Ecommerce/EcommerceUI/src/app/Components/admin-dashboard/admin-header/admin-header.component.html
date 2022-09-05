@@ -4,21 +4,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="user-menu">
-          <ul>
-            <li>
-              <a href="#"><i class="fa fa-user"></i> My Account</a>
-            </li>
-            <li>
-              <a href="/wishlist"><i class="fa fa-heart"></i> Wishlist</a>
-            </li>
-            <li>
-              <a href="/shoppingcart"><i class="fa fa-user"></i> My Cart</a>
-            </li>
-
-            <li>
-              <a href="/login"><i class="fa fa-user"></i> Login</a>
-            </li>
-          </ul>
+          
         </div>
       </div>
     </div>
@@ -31,22 +17,13 @@
   <h1 class="logo">
     <img src="assets/images/applogo.png" height="20px" />
   </h1>
-  <nav>
-    <button><a href="/home" style="color: rgb(255, 255, 255)">Home</a></button>
 
-    <button>
-      <a routerLink="/products" style="color: rgb(255, 255, 255)">Products</a>
+    <button class="btn" style="float: right;">
+      <a routerLink="/add-product" style="color: rgb(255, 255, 255)">Add Product</a>
     </button>
-
-    <button><a style="color: rgb(255, 255, 255)">Contact</a></button>
-  </nav>
-  <div class="shopping-item">
-    <a href="/shoppingcart"
-      >Cart
-      <i class="fa fa-shopping-cart"></i>
-      <span class="product-count">{{ quantity }}</span></a
-    >
-  </div>
+    <button class="btn">
+      <a routerLink="/products" style="color: rgb(255, 255, 255)">Order History</a>
+    </button>
 </header>
 <div>
   <svg

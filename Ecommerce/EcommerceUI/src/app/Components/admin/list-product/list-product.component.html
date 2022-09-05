@@ -1,4 +1,3 @@
-<button type="submit">Add Product</button>
 <table>
     <thead>
       <tr>
@@ -14,15 +13,16 @@
     <tbody>
       <tr *ngFor="let prd of productList">
         <td>{{ prd.productid }}</td>
-        <td><img src="{{ prd.imagepath }} "  height="20%" width="20%"/></td>
+        <td><img src="{{ prd.imagepath }} "  height="10%" width="60%"/></td>
         <td>{{ prd.productname }}</td>
         <td>{{ prd.price }}</td>
         <td>{{ prd.productofferprice }}</td>
         <td>{{ prd.quantity }}</td>
         <td>
-          <button type="button" class="btn btn-success" routerLink="/update-product/{{prd.productid}}">Update</button>
-          <button type="button" class="btn btn-danger" (click)="delete(prd.productid)" >Delete</button>
+          <button type="button" class="btn btn-success " style="background-color: #5e549b ;" routerLink="/update-product/{{prd.productid}}">Update</button>
+          <button type="button" class="btn btn-danger" style="background-color: rgb(251, 99, 126);" (click)="delete(prd.productid)" >Delete</button>
         </td>
       </tr>
+
     </tbody>
   </table>

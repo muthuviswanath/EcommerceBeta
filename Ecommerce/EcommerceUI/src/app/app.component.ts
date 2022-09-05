@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
+
 
 
 @Component({
@@ -8,8 +10,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'EcommerceUI';
-  
-  constructor(){}
- 
-    
+  showHeader: boolean=true;
+  router: any;
+
+
+  constructor(router: Router) {
+    // router.events.forEach((event) => {
+    //   if(event instanceof NavigationStart) {
+    //     this.showHeader = event.url !== "/admin";
+    //   }
+    // });
+
   }
+
+
+}
