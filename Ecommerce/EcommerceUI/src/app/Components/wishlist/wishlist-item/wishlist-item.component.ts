@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./wishlist-item.component.css'],
 })
 export class WishlistItemComponent implements OnInit {
-  @Input('product') product: any;
+  @Input() product: any;
   constructor(
     private wishlistService: WishlistService,
     private productService: ProductService

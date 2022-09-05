@@ -1,4 +1,3 @@
-
 <div class="header-area">
   <div class="container">
     <div class="row">
@@ -6,17 +5,27 @@
         <div class="user-menu">
           <ul>
             <li>
-              <a href="#"><i class="fa fa-user"></i> My Account</a>
+              <a href="/update-profile"
+                ><i class="fa fa-user"></i> My Account</a
+              >
             </li>
             <li>
               <a href="/wishlist"><i class="fa fa-heart"></i> Wishlist</a>
             </li>
             <li>
-              <a href="/shoppingcart"><i class="fa fa-user"></i> My Cart</a>
+              <a href="/shoppingcart">
+                <i class="fa fa-shopping-cart"></i>My Cart
+                <!-- <span class="product-count">{{ quantity }}</span> -->
+              </a>
             </li>
 
-            <li>
+            <li *ngIf="!isUserAuthenticated()">
               <a href="/login"><i class="fa fa-user"></i> Login</a>
+            </li>
+            <li *ngIf="isUserAuthenticated()">
+              <a href="/login" (click)="logOut()"
+                ><i class="fa fa-user"></i> Logout</a
+              >
             </li>
           </ul>
         </div>
@@ -26,7 +35,6 @@
 </div>
 
 <!-- End header area -->
-
 <header>
   <h1 class="logo">
     <img src="assets/images/applogo.png" height="20px" />
@@ -38,7 +46,7 @@
       <a routerLink="/products" style="color: rgb(255, 255, 255)">Products</a>
     </button>
 
-    <button routerLink="/contact">Contact</button>
+    <button><a routerLink="/contact" style="color: rgb(255, 255, 255)">Contact</a></button>
   </nav>
   <div class="shopping-item">
     <a href="/shoppingcart"
@@ -48,6 +56,8 @@
     >
   </div>
 </header>
+
+
 <div>
   <svg
     class="waves"

@@ -1,0 +1,44 @@
+<div class="container">
+  <form control="" id="contact" class="form-group">
+    <h3>Welcome</h3>
+    <h4>Profile</h4>
+
+    <fieldset>
+      <input
+        placeholder="User Name"
+        name="User Name"
+        type="text"
+        class="form__input"
+        [(ngModel)]="userData.username"
+      />
+    </fieldset>
+
+    <fieldset>
+      <input
+        name="Address"
+        placeholder="Address"
+        type="text"
+        class="form__input"
+        [(ngModel)]="userData.address"
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        name="emailid"
+        placeholder="EmailId"
+        type="text"
+        class="form__input"
+        [(ngModel)]="userData.emailid"
+      />
+    </fieldset>
+
+    <fieldset>
+      <input
+        type="submit"
+        value="Edit"
+        class="btn btn-primary"
+        (click)="update()"
+      />
+    </fieldset>
+  </form>
+</div>

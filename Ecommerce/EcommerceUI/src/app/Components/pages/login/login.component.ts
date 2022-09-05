@@ -1,46 +1,72 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Services/login/login.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
+import { ILoginModel } from 'src/app/Interface/ILoginModel';
+import { IAuthenticatedResponse } from 'src/app/Interface/IAuthenticatedResponse';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  userData: any;
-  public formData: any = {};
-  // public showMessage:boolean=false;
-  username = new FormControl('');
-  password = new FormControl('');
   constructor(
     private service: LoginService,
     private route: Router,
-    private formBuilder: FormBuilder,
-    private builder: FormBuilder
+    private http: HttpClient,
+    private jwtHelper: JwtHelperService
   ) {}
-
-  ngOnInit(): void {
-    this.loginForm;
-  }
-  loginForm: FormGroup = this.builder.group({
-    username: this.username,
-    password: this.password,
-  });
-
-  checkLogin() {
-    this.formData = this.loginForm.value;
-    // this.showMessage=true;
-    if (this.loginForm.valid) {
-      this.service.loginUser(this.loginForm.value).subscribe((res) => {
-        this.userData = res;
-        if (this.userData == null) {
-          this.route.navigateByUrl('/signup');
-        } else {
-          localStorage.setItem('userid', this.userData.userid);
-          this.route.navigateByUrl('/products');
-        }
-      });
+  ngOnInit() {}
+  invalidLogin: boolean;
+  userid: any;
+  login = (form: NgForm) => {
+    const credentials = {
+      username: form.value.username,
+      password: form.value.password,
+    };
+    if (form.valid) {
+      this.http
+        .post('http://localhost:5000/api/auth/login', credentials)
+        .subscribe({
+          next: (response: IAuthenticatedResponse) => {
+            const token = response.token;
+            this.http
+              .get(
+                'http://localhost:5000/api/Users/Username/' +
+                  credentials.username
+              )
+              .subscribe((res) => {
+                this.userid = res;
+                localStorage.setItem('userid', this.userid);
+              });
+            localStorage.setItem('jwt', token);
+            this.invalidLogin = false;
+            this.route
+              .navigate(['/products'])
+              .then(() => window.location.reload());
+          },
+          error: (err: HttpErrorResponse) => (this.invalidLogin = true),
+        });
     }
-  }
+  };
+  // checkLogin() {
+  //   this.formData = this.loginForm.value;
+  //   if (this.loginForm.valid) {
+  //     this.service.loginUser(this.loginForm.value).subscribe((res) => {
+  //       this.userData = res;
+  //       if (this.userData == null) {
+  //         this.route.navigateByUrl('/signup');
+  //       } else {
+  //         localStorage.setItem('userid', this.userData.userid);
+  //         this.route.navigateByUrl('/products');
+  //       }
+  //     });
+  //   }
+  // }
 }
