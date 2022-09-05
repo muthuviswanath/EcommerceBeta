@@ -88,3 +88,12 @@ p {
   font-family: "Times New Roman", Times, serif;
   color: darkslategrey;
 }
+.sortbutton{
+  width: 40px;
+}
+.sortoption{
+  margin-left: 40px;
+  padding: 2px;
+
+}
+

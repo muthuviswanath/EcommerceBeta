@@ -27,7 +27,7 @@ import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.servi
 import { UserService } from './Services/user/user.service';
 
 import { SignupService } from './Services/signup/signup.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { SearchComponent } from './search/search.component';
 import { ListProductComponent } from './Components/admin/list-product/list-product.component';
 import { AddProductComponent } from './Components/admin/add-product/add-product.component';
@@ -46,7 +46,10 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { Filter } from './Filter';
 import { sort } from './sort';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+export function tokenGetter() {
+  return localStorage.getItem('jwt');
+}
 
 
 @NgModule({
@@ -70,7 +73,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     sort,
     HomeComponent,
     CarouselComponent,
-   
+    UpdateProfileComponent
    
   ],
   imports: [
@@ -80,8 +83,6 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
-=======
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -89,7 +90,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
         disallowedRoutes: [],
       },
     }),
->>>>>>> origin/feature/JwtAuthentication
+
   ],
   providers: [
     ProductService,

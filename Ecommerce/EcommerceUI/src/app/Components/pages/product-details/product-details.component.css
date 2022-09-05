@@ -31,7 +31,7 @@ body {
 .product--green {
   background: linear-gradient(
     -45deg,
-    #70c1b3 50%,
+    rgb(219, 124, 142) 50%,
     rgba(255, 255, 255, 0.5) 50%
   );
 }
@@ -105,4 +105,7 @@ li {
   font-size: large;
   font-family: "Times New Roman", Times, serif;
   color: darkslategrey;
+}
+option{
+  margin: 10px;
 }
