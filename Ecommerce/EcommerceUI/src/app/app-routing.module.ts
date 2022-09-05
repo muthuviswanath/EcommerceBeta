@@ -10,21 +10,30 @@ import { ProductsComponent } from './Components/Products/products.component';
 import { HomeComponent } from './Components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'shoppingcart', component: ShoppingCartContainerComponent },
-  { path: 'wishlist', component: WishlistContainerComponent },
+  {
+    path: 'shoppingcart',
+    component: ShoppingCartContainerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'wishlist',
+    component: WishlistContainerComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'product-details', component: ProductDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  {path:'list-product',component:ListProductComponent},
-  {path:'add-product',component:AddProductComponent},
+  { path: 'list-product', component: ListProductComponent },
+  { path: 'add-product', component: AddProductComponent },
   { path: 'product/:id', component: ProductsComponent },
   { path: 'product-detail/:id', component: ProductDetailsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'home', component: HomeComponent },
-  {path:'update-product/:id',component:UpdateProductComponent}
+  { path: 'update-product/:id', component: UpdateProductComponent },
 ];
 
 @NgModule({

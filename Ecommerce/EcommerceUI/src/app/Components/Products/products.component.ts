@@ -3,7 +3,8 @@ import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IProducts } from 'src/app/Interface/IProducts';
-import { ProductService } from 'src/app/Services/products/product.service';4
+import { ProductService } from 'src/app/Services/products/product.service';
+4;
 import { ActivatedRoute } from '@angular/router';
 import { Filter } from 'src/app/Filter';
 @Component({
@@ -18,9 +19,9 @@ export class ProductsComponent implements OnInit {
   shoppingCartList: any;
   wishlist: any;
 
-  IProducts:Array<any>=[];
-  Id:number
-  product:any
+  IProducts: Array<any> = [];
+  Id: number;
+  product: any;
   constructor(
     private service: ProductService,
     private route: Router,
@@ -37,34 +38,41 @@ export class ProductsComponent implements OnInit {
       this.productList = res;
     });
   }
-  public submit(prdid:any):void{
+  public submit(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
-    this.model.quantity = 1;
-    this.shoppingcartservice
-      .getAllShoppingCartProductOfUser(this.model.userid)
-      .subscribe((res) => {
-        this.shoppingCartList = res;
-        let flag = 0;
-        for (let i = 0; i < this.shoppingCartList.length; i++) {
-          if (
-            this.model.productid == this.shoppingCartList[i].product.productid
-          ) {
-            flag = 1;
-            alert('This product is already added in your shopping cart.');
-            break;
+    if (this.model.userid == 0) {
+      this.route.navigateByUrl('/login');
+    } else {
+      this.model.quantity = 1;
+      this.shoppingcartservice
+        .getAllShoppingCartProductOfUser(this.model.userid)
+        .subscribe((res) => {
+          this.shoppingCartList = res;
+          let flag = 0;
+          for (let i = 0; i < this.shoppingCartList.length; i++) {
+            if (
+              this.model.productid == this.shoppingCartList[i].product.productid
+            ) {
+              flag = 1;
+              alert('This product is already added in your shopping cart.');
+              break;
+            }
           }
-        }
-        if (flag == 0)
-          this.service.addCart(this.model).subscribe(() => {
-            this.route.navigateByUrl('/products');
-          });
-      });
+          if (flag == 0)
+            this.service.addCart(this.model).subscribe(() => {
+              this.route.navigateByUrl('/products');
+            });
+        });
+    }
   }
 
-  public submittowishlist(prdid:any):void{
+  public submittowishlist(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
+    if (this.model.userid == 0) {
+      this.route.navigateByUrl('/login');
+    }
     this.wishlistservice
       .getAllWishlistProductsOfUser(this.model.userid)
       .subscribe((res) => {
@@ -85,9 +93,9 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-  searchText:string='';
-  onSearchTextEntered(searchValue:string){
-    this.searchText=searchValue;
+  searchText: string = '';
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
     // console.log(this.searchText);
   }
 }
