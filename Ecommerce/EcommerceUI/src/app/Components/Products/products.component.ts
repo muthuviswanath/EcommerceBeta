@@ -3,9 +3,10 @@ import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IProducts } from 'src/app/Interface/IProducts';
-import { ProductService } from 'src/app/Services/products/product.service';4
+import { ProductService } from 'src/app/Services/products/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Filter } from 'src/app/Filter';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -17,54 +18,60 @@ export class ProductsComponent implements OnInit {
   model: any = {};
   shoppingCartList: any;
   wishlist: any;
-
-  IProducts:Array<any>=[];
-  Id:number
-  product:any
+  IProducts: Array<any> = [];
+  Id: number;
+  product: any;
+  filter: string = '';
+  SortbyParam: string = '';
+  SortDirection: string = 'asc';
   constructor(
     private service: ProductService,
     private route: Router,
     private shoppingcartservice: ShoppingCartService,
     private wishlistservice: WishlistService
-  ) {
-    let prdRecord = this.service.getOptions();
-    // this.prdData = this.service
-    //   .getProductById(prdRecord.productid)
-    //   .subscribe((res) => (this.prdData = res));
-  }
+  ) {}
+
   ngOnInit(): void {
     this.service.getAllProducts().subscribe((res) => {
       this.productList = res;
     });
   }
-  public submit(prdid:any):void{
+
+  public submit(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
-    this.model.quantity = 1;
-    this.shoppingcartservice
-      .getAllShoppingCartProductOfUser(this.model.userid)
-      .subscribe((res) => {
-        this.shoppingCartList = res;
-        let flag = 0;
-        for (let i = 0; i < this.shoppingCartList.length; i++) {
-          if (
-            this.model.productid == this.shoppingCartList[i].product.productid
-          ) {
-            flag = 1;
-            alert('This product is already added in your shopping cart.');
-            break;
+    if (this.model.userid == 0) {
+      this.route.navigateByUrl('/login');
+    } else {
+      this.model.quantity = 1;
+      this.shoppingcartservice
+        .getAllShoppingCartProductOfUser(this.model.userid)
+        .subscribe((res) => {
+          this.shoppingCartList = res;
+          let flag = 0;
+          for (let i = 0; i < this.shoppingCartList.length; i++) {
+            if (
+              this.model.productid == this.shoppingCartList[i].product.productid
+            ) {
+              flag = 1;
+              alert('This product is already added in your shopping cart.');
+              break;
+            }
           }
-        }
-        if (flag == 0)
-          this.service.addCart(this.model).subscribe(() => {
-            this.route.navigateByUrl('/products');
-          });
-      });
+          if (flag == 0)
+            this.service.addCart(this.model).subscribe(() => {
+              this.route.navigateByUrl('/products');
+            });
+        });
+    }
   }
 
-  public submittowishlist(prdid:any):void{
+  public submittowishlist(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
+    if (this.model.userid == 0) {
+      this.route.navigateByUrl('/login');
+    }
     this.wishlistservice
       .getAllWishlistProductsOfUser(this.model.userid)
       .subscribe((res) => {
@@ -85,9 +92,15 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-  searchText:string='';
-  onSearchTextEntered(searchValue:string){
-    this.searchText=searchValue;
-    // console.log(this.searchText);
+  searchText: string = '';
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
+  }
+  onSortDirection() {
+    if (this.SortDirection === 'desc') {
+      this.SortDirection = 'asc';
+    } else {
+      this.SortDirection = 'desc';
+    }
   }
 }

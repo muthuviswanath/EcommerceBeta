@@ -11,22 +11,39 @@ import { HomeComponent } from './Components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
+import { OrderHistoryComponent } from './Components/admin/order-history/order-history.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'shoppingcart', component: ShoppingCartContainerComponent },
-  { path: 'wishlist', component: WishlistContainerComponent },
+  {
+    path: 'shoppingcart',
+    component: ShoppingCartContainerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'wishlist',
+    component: WishlistContainerComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'product-details', component: ProductDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  {path:'list-product',component:ListProductComponent},
-  {path:'add-product',component:AddProductComponent},
+  { path: 'list-product', component: ListProductComponent },
+  { path: 'add-product', component: AddProductComponent },
   { path: 'product/:id', component: ProductsComponent },
   { path: 'product-detail/:id', component: ProductDetailsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'update-product/:id', component: UpdateProductComponent },
-  { path: 'admin', component: AdminDashboardComponent }
+  { path: 'admin', component: AdminDashboardComponent },
+  { path: 'update-profile', component:UpdateProfileComponent },
+  {path:'order-history',component:OrderHistoryComponent},
+  {path:'contact',component:ContactComponent}
+
 ];
 
 @NgModule({

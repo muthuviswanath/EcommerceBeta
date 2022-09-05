@@ -22,11 +22,14 @@
           </div>
           <div class="row">
             <form
+              #loginForm="ngForm"
               control=""
               class="form-group"
-              [formGroup]="loginForm"
-              (ngSubmit)="checkLogin()"
+              (ngSubmit)="login(loginForm)"
             >
+              <div *ngIf="invalidLogin" class="alert alert-danger">
+                Invalid usernAME OR Password
+              </div>
               <div class="row">
                 <input
                   type="text"
@@ -34,7 +37,8 @@
                   id="username"
                   class="form__input"
                   placeholder="Username"
-                  [formControl]="username"
+                  ngModel
+                  required
                 />
               </div>
               <div class="row">
@@ -44,15 +48,16 @@
                   id="password"
                   class="form__input"
                   placeholder="Password"
-                  [formControl]="password"
+                  ngModel
+                  required
                 />
               </div>
               <div class="row">
                 <input
                   type="submit"
-                  value="Submit"
+                  value="Log in"
                   class="btn"
-                  (click)="checkLogin()"
+                  [disabled]="!loginForm.valid"
                 />
               </div>
             </form>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EcommerceBetaAPI.Models;
+using EcommerceBetaAPI.Dto;
 
 namespace EcommerceBetaAPI.Controllers
 {
@@ -20,11 +21,29 @@ namespace EcommerceBetaAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Orders
+        ////// GET: api/Orders
+        /*[HttpGet]
+         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
+         {
+             return await _context.Orders.Include(o => o.User).Include(x => x.Product).ToListAsync();
+         }*/
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
+        public async Task<ActionResult<IEnumerable<ordersDTO>>> GetOrders()
         {
-            return await _context.Orders.Include(o => o.User).Include(o => o.Product).ToListAsync();
+            var order = _context.Orders.Include(o => o.User).Include(o => o.Product).Select(x =>
+            new ordersDTO
+            {
+                UserId = x.Userid,
+                OrderId = x.Orderid,
+                OrderDate = x.Orderdate,
+                TotalPrice = x.TotalPrice,
+                ProductName = x.Product.Productname,
+                Imagepath=x.Product.Imagepath,
+
+            }) ;
+          var value = await order.ToListAsync();
+           return value;
         }
 
         // GET: api/Orders/5

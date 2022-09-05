@@ -6,15 +6,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EcommerceBetaAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EcommerceBetaAPI.Controllers
-{
+{/*
+    [Authorize]*/
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly EcommerceContext _context;
-
         public UsersController(EcommerceContext context)
         {
             _context = context;
@@ -24,15 +25,15 @@ namespace EcommerceBetaAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u=>u.Product).ToListAsync();
+            return await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u => u.Product).ToListAsync();
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u => u.Product).FirstOrDefaultAsync(u => u.Userid == id);
-
+           /* var user = await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u => u.Product).FirstOrDefaultAsync(u => u.Userid == id);*/
+            var user = await _context.Users.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -40,6 +41,22 @@ namespace EcommerceBetaAPI.Controllers
 
             return user;
         }
+
+        //GET: api/Users/Username/shubham
+        [HttpGet("Username/{username}")]
+        public int GetUserIdByName(string username)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Username.Equals(username));
+
+            if (user == null)
+            {
+                return 0;
+            }
+
+            return user.Userid;
+        }
+
+
 
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

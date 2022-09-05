@@ -4,11 +4,11 @@ import { Injectable, OnInit } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService implements OnInit {
+export class LoginService {
   baseurl: string = 'http://localhost:5000/api/';
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {}
+ 
 
   public loginUser(data: any) {
     const httpOptions = {

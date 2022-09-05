@@ -15,26 +15,26 @@ export class AppComponent {
   user: any='';
 
   constructor(router: Router) {
-    router.events.forEach((event) => {
-      if(event instanceof NavigationStart) {
-        this.showHeader = event.url !== "/admin";
-      }
-    });
+    // router.events.forEach((event) => {
+    //   if(event instanceof NavigationStart) {
+    //     this.showHeader = event.url !== "/admin";
+    //   }
+    // });
 
   }
-  // isAdmin() {
+  isAdmin() {
 
-  //   if (this.user == 'admin') {
+    if (localStorage.getItem('userRole')== 'admin' ) {
 
-  //     return false;
+      return true;
 
-  //   } else {
+    } else {
 
-  //     return true;
+      return false;
 
-  //   }
+    }
 
-  // }
+  }
 
 
 }

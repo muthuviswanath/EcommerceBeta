@@ -33,8 +33,8 @@ export class UpdateProductComponent implements OnInit {
    })
   }
   update(){
-    console.log(this.productData);
-    console.log(this.productData.productid);
+    //console.log(this.productData);
+    //console.log(this.productData.productid);
     this.service.updateProduct(this.productData.productid,this.productData).subscribe();
   }
 

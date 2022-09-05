@@ -62,6 +62,7 @@ export class ShoppingCartContainerComponent implements OnInit {
               .deleteProductsFromShoppingCart(this.cart[i].cartId)
               .subscribe(() => {
                 window.location.reload();
+                
               });
           }
         });
