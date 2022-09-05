@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EcommerceBetaAPI.Models;
 using EcommerceBetaAPI.Dto;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EcommerceBetaAPI.Controllers
 {
@@ -23,6 +24,7 @@ namespace EcommerceBetaAPI.Controllers
 
         // GET: api/Carts
         [HttpGet]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<cartsDTO>>> GetCarts()
         {
             // return await _context.Carts.Include(c => c.User).Include(c => c.Product).ToListAsync();
@@ -58,6 +60,7 @@ namespace EcommerceBetaAPI.Controllers
         //GET: api/Carts/User/4
 
         [HttpGet("User/{id}")]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<cartsDTO>>> GetCartOfUser(int id)
         {
             var usersCart = _context.Carts.Where(x => x.Userid == id).Include(c => c.User).Include(c => c.Product).Select(x =>
@@ -110,6 +113,7 @@ namespace EcommerceBetaAPI.Controllers
         // POST: api/Carts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<Cart>> PostCart(Cart cart)
         {
             _context.Carts.Include(c => c.User).Include(c => c.Product);

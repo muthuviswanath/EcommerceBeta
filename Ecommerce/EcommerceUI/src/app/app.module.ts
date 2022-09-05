@@ -35,11 +35,14 @@ import { UpdateProductComponent } from './Components/admin/update-product/update
 import { WishlistContainerComponent } from './Components/wishlist/wishlist-container/wishlist-container.component';
 import { WishlistItemComponent } from './Components/wishlist/wishlist-item/wishlist-item.component';
 import { MatCardModule } from '@angular/material/card';
+
+import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
+
 import { HomeComponent } from './Components/home/home.component';
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
-import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
+import { JwtModule } from '@auth0/angular-jwt';
 import { Filter } from './Filter';
 import { sort } from './sort';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
@@ -67,7 +70,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     sort,
     HomeComponent,
     CarouselComponent,
-    UpdateProfileComponent,
+   
    
   ],
   imports: [
@@ -77,6 +80,16 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
+=======
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5000'],
+        disallowedRoutes: [],
+      },
+    }),
+>>>>>>> origin/feature/JwtAuthentication
   ],
   providers: [
     ProductService,

@@ -40,31 +40,38 @@ export class ProductsComponent implements OnInit {
   public submit(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
-    this.model.quantity = 1;
-    this.shoppingcartservice
-      .getAllShoppingCartProductOfUser(this.model.userid)
-      .subscribe((res) => {
-        this.shoppingCartList = res;
-        let flag = 0;
-        for (let i = 0; i < this.shoppingCartList.length; i++) {
-          if (
-            this.model.productid == this.shoppingCartList[i].product.productid
-          ) {
-            flag = 1;
-            alert('This product is already added in your shopping cart.');
-            break;
+    if (this.model.userid == 0) {
+      this.route.navigateByUrl('/login');
+    } else {
+      this.model.quantity = 1;
+      this.shoppingcartservice
+        .getAllShoppingCartProductOfUser(this.model.userid)
+        .subscribe((res) => {
+          this.shoppingCartList = res;
+          let flag = 0;
+          for (let i = 0; i < this.shoppingCartList.length; i++) {
+            if (
+              this.model.productid == this.shoppingCartList[i].product.productid
+            ) {
+              flag = 1;
+              alert('This product is already added in your shopping cart.');
+              break;
+            }
           }
-        }
-        if (flag == 0)
-          this.service.addCart(this.model).subscribe(() => {
-            this.route.navigateByUrl('/products');
-          });
-      });
+          if (flag == 0)
+            this.service.addCart(this.model).subscribe(() => {
+              this.route.navigateByUrl('/products');
+            });
+        });
+    }
   }
 
   public submittowishlist(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
+    if (this.model.userid == 0) {
+      this.route.navigateByUrl('/login');
+    }
     this.wishlistservice
       .getAllWishlistProductsOfUser(this.model.userid)
       .subscribe((res) => {
