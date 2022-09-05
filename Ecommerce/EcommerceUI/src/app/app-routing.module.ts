@@ -13,6 +13,8 @@ import { UpdateProductComponent } from './Components/admin/update-product/update
 import { AuthGuard } from './guards/auth.guard';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
+import { OrderHistoryComponent } from './Components/admin/order-history/order-history.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -37,8 +39,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {path:'update-product/:id',component:UpdateProductComponent},
   { path: 'update-profile', component:UpdateProfileComponent },
- 
-  
+  {path:'order-history',component:OrderHistoryComponent},
+  {path:'contact',component:ContactComponent}
+
 ];
 
 @NgModule({

@@ -47,11 +47,13 @@ import { Filter } from './Filter';
 import { sort } from './sort';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+import { OrderHistoryComponent } from './Components/admin/order-history/order-history.component';
+import { ContactComponent } from './Components/contact/contact.component';
 export function tokenGetter() {
   return localStorage.getItem('jwt');
 }
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,25 +75,25 @@ export function tokenGetter() {
     sort,
     HomeComponent,
     CarouselComponent,
-    UpdateProfileComponent
-   
+    UpdateProfileComponent,
+    OrderHistoryComponent,
+    ContactComponent
   ],
-  imports: [
-    BrowserModule,
+
+  imports: [BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
     JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        allowedDomains: ['localhost:5000'],
-        disallowedRoutes: [],
+      config:{
+        tokenGetter:tokenGetter,
+      allowedDomains:['localhost:5000'],
+      disallowedRoutes:[],
       },
     }),
-
-  ],
+ ],
   providers: [
     ProductService,
     WishlistService,
