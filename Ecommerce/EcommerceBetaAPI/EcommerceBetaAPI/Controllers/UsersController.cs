@@ -31,8 +31,8 @@ namespace EcommerceBetaAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u => u.Product).FirstOrDefaultAsync(u => u.Userid == id);
-
+           /* var user = await _context.Users.Include(u => u.Carts).ThenInclude(c => c.Product).Include(u => u.Orders).Include(u => u.Wishlists).ThenInclude(u => u.Product).FirstOrDefaultAsync(u => u.Userid == id);*/
+            var user = await _context.Users.FindAsync(id);
             if (user == null)
             {
                 return NotFound();

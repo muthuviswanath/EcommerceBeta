@@ -34,8 +34,10 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.service.loginUser(this.loginForm.value).subscribe((res) => {
         this.userData = res;
+        console.log(this.userData.userid);
         if (this.userData == null) {
           this.route.navigateByUrl('/signup');
+          
         } else {
           localStorage.setItem('userid', this.userData.userid);
           this.route.navigateByUrl('/products');

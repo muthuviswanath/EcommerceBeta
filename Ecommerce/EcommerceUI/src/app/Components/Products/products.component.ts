@@ -3,7 +3,7 @@ import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IProducts } from 'src/app/Interface/IProducts';
-import { ProductService } from 'src/app/Services/products/product.service';4
+import { ProductService } from 'src/app/Services/products/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Filter } from 'src/app/Filter';
 
@@ -18,19 +18,19 @@ export class ProductsComponent implements OnInit {
   model: any = {};
   shoppingCartList: any;
   wishlist: any;
-  IProducts:Array<any>=[];
-  Id:number
-  product:any
-  filter:string="";
-  SortbyParam:string="";
-  SortDirection:string="asc";
+  IProducts: Array<any> = [];
+  Id: number;
+  product: any;
+  filter: string = '';
+  SortbyParam: string = '';
+  SortDirection: string = 'asc';
   constructor(
-    private service:ProductService,
+    private service: ProductService,
     private route: Router,
     private shoppingcartservice: ShoppingCartService,
     private wishlistservice: WishlistService
-  ){}
-  
+  ) {}
+
   ngOnInit(): void {
     this.service.getAllProducts().subscribe((res) => {
       this.productList = res;
@@ -62,7 +62,7 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-  public submittowishlist(prdid:any):void{
+  public submittowishlist(prdid: any): void {
     this.model.productid = prdid;
     this.model.userid = +localStorage.getItem('userid');
     this.wishlistservice
@@ -85,15 +85,15 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-  searchText:string='';
-  onSearchTextEntered(searchValue:string){
-    this.searchText=searchValue;
+  searchText: string = '';
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
   }
-  onSortDirection(){
-    if(this.SortDirection==="desc"){
-      this.SortDirection='asc';
-    }else{
-      this.SortDirection='desc';
+  onSortDirection() {
+    if (this.SortDirection === 'desc') {
+      this.SortDirection = 'asc';
+    } else {
+      this.SortDirection = 'desc';
     }
   }
 }

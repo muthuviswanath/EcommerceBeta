@@ -10,8 +10,9 @@ import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart
 export class HeaderComponent implements OnInit {
   constructor(private shoppingcartservice: ShoppingCartService) {}
   quantity: number;
-  userId: number;
+  userId: any;
   shoppingCartList: any;
+
   ngOnInit(): void {
     this.userId = +localStorage.getItem('userid');
     this.shoppingcartservice

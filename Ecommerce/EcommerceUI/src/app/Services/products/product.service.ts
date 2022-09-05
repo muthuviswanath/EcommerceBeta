@@ -6,18 +6,11 @@ import { IProducts } from '../../Interface/IProducts';
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService implements OnInit {
+export class ProductService  {
   public data: any = {};
   public pid: any;
 
-  // productid:any;
-  // public data:any={}
-  // setOptions(option,value){
-  //   this.data[option]=value;
-  // }
-  // getOptions(){
-  //   return this.data;
-  // }
+
   constructor(private http: HttpClient) {}
   setOptions(option: any, value: any) {
     this.data[option] = value;
@@ -26,97 +19,69 @@ export class ProductService implements OnInit {
     return this.data;
   }
   baseurl: string = 'http://localhost:5000/api/';
-  ngOnInit(): void {}
+ 
   getAllProducts(): Observable<IProducts[]> {
     return this.http.get<IProducts[]>(this.baseurl + 'Products');
   }
-  
 
-public getProductById(productid:any){
-  return this.http.get(`${this.baseurl}Products/${productid}`);
-}
-public addCart(data:any){
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':'application/json; charset=utf-8'
-    })
-  };
-  return this.http.post(this.baseurl+"Carts",data,httpOptions);
-}
-public addwishlist(data:any){
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':'application/json; charset=utf-8'
-    })
-  };
-  
-  return this.http.post(this.baseurl+"Wishlists",data,httpOptions);
-
-}
-getProductdetail(ID: number) {
-  return this.http.get(this.baseurl + 'Products/' + ID);
-}
-update(id:number,data:any){
-
-}
-
-addProduct(data: any) {
-
-  const httpOptions = {
-
-    headers: new HttpHeaders({
-
-      'Content-Type': 'application/json; charset=utf-8',
-
-    }),
-
-  };
-  
-
-  return this.http.post<any>(
-
-    this.baseurl + 'Products',
-
-    JSON.stringify(data),
-
-    httpOptions
-
-  );
-
-
+  public getProductById(productid: any) {
+    return this.http.get(`${this.baseurl}Products/${productid}`);
   }
-
-  deleteProduct(id:any)
-  {
+  public addCart(data: any) {
     const httpOptions = {
-
       headers: new HttpHeaders({
-  
         'Content-Type': 'application/json; charset=utf-8',
-  
       }),
-  
     };
-    return this.http.delete(this.baseurl+"Products/"+id,httpOptions);
+    return this.http.post(this.baseurl + 'Carts', data, httpOptions);
+  }
+  public addwishlist(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+      }),
+    };
 
+    return this.http.post(this.baseurl + 'Wishlists', data, httpOptions);
+  }
+  getProductdetail(ID: number) {
+    return this.http.get(this.baseurl + 'Products/' + ID);
+  }
+  update(id: number, data: any) {}
+
+  addProduct(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+      }),
+    };
+
+    return this.http.post<any>(
+      this.baseurl + 'Products',
+
+      JSON.stringify(data),
+
+      httpOptions
+    );
   }
 
-  updateProduct(id:any,data:any)
-  {
+  deleteProduct(id: any) {
     const httpOptions = {
-
       headers: new HttpHeaders({
-  
         'Content-Type': 'application/json; charset=utf-8',
-  
       }),
-  
+    };
+    return this.http.delete(this.baseurl + 'Products/' + id, httpOptions);
+  }
+
+  updateProduct(id: any, data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+      }),
     };
     console.log(data);
 
-    return this.http.put(this.baseurl+"Products/"+id,data,httpOptions);
+    return this.http.put(this.baseurl + 'Products/' + id, data, httpOptions);
   }
-
-
-
 }

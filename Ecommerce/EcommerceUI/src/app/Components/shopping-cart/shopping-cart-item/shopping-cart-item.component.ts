@@ -7,7 +7,7 @@ import { ShoppingCartService } from 'src/app/Services/shoppingcart/shopping-cart
   styleUrls: ['./shopping-cart-item.component.css'],
 })
 export class ShoppingCartItemComponent implements OnInit {
-  @Input('product') product: any;
+  @Input() product: any;
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit(): void {}

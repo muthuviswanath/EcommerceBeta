@@ -27,7 +27,7 @@ import { ShoppingCartService } from './Services/shoppingcart/shopping-cart.servi
 import { UserService } from './Services/user/user.service';
 
 import { SignupService } from './Services/signup/signup.service';
-import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { ListProductComponent } from './Components/admin/list-product/list-product.component';
 import { AddProductComponent } from './Components/admin/add-product/add-product.component';
@@ -41,7 +41,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ShoppingCartContainerComponent } from './Components/shopping-cart/shopping-cart-container/shopping-cart-container.component';
 import { ShoppingCartItemComponent } from './Components/shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import { Filter } from './Filter';
-import {sort} from './sort'
+import { sort } from './sort';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
 
 
 @NgModule({
@@ -64,7 +66,9 @@ import {sort} from './sort'
     UpdateProductComponent,
     sort,
     HomeComponent,
-    CarouselComponent
+    CarouselComponent,
+    UpdateProfileComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,7 @@ import {sort} from './sort'
     HttpClientModule,
     MatCardModule,
     FormsModule,
-    ReactiveFormsModule,  
+    ReactiveFormsModule,
   ],
   providers: [
     ProductService,

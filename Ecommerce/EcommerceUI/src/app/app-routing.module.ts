@@ -10,6 +10,8 @@ import { ProductsComponent } from './Components/Products/products.component';
 import { HomeComponent } from './Components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -24,7 +26,10 @@ const routes: Routes = [
   { path: 'product-detail/:id', component: ProductDetailsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'home', component: HomeComponent },
-  {path:'update-product/:id',component:UpdateProductComponent}
+  {path:'update-product/:id',component:UpdateProductComponent},
+  { path: 'update-profile', component:UpdateProfileComponent },
+ 
+  
 ];
 
 @NgModule({
