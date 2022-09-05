@@ -39,54 +39,40 @@ namespace EcommerceBetaAPI.Controllers
             }
             if (user.Username.Equals("admin") && user.Password.Equals("admin"))
             {
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("symmetricsecretkey$567"));
-                var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-
-                var claims = new List<Claim> {
-                new Claim(ClaimTypes.Name,user.Username)/*,
-                new Claim(ClaimTypes.Role,"Admin"),*/
-                };
-
-                var tokenOptions = new JwtSecurityToken(
-
-                    issuer: "http://localhost:5000",
-                    audience: "http://localhost:5000",
-                    claims: claims,
-                    expires: DateTime.Now.AddMinutes(5),
-                    signingCredentials: signingCredentials
-                    );
-
-                var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-                return Ok(new { Token = tokenString });
+               return Authentication(user.Username, "Admin");
             }
             if (user.Username.Equals(checkUser.Username) && user.Password.Equals(checkUser.Password))
             {
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("symmetricsecretkey$567"));
-                var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-
-                var claims = new List<Claim> {
-                new Claim(ClaimTypes.Name,user.Username),
-                new Claim(ClaimTypes.Role,"User"),
-                };
-
-                var tokenOptions = new JwtSecurityToken(
-
-                    issuer: "http://localhost:5000",
-                    audience: "http://localhost:5000",
-                    claims: claims,
-                    expires: DateTime.Now.AddMinutes(5),
-                    signingCredentials: signingCredentials
-                    );
-
-                var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-                return Ok(new { Token = tokenString });
+                return Authentication(user.Username, "User");
 
             }
             return Unauthorized();
 
         }
 
+        [HttpPost]
+        public IActionResult Authentication(string username, string role)
+        {
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("symmetricsecretkey$567"));
+            var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
+            var claims = new List<Claim> {
+                new Claim(ClaimTypes.Name,username),
+                new Claim(ClaimTypes.Role,role),
+                };
 
+            var tokenOptions = new JwtSecurityToken(
+
+                issuer: "http://localhost:5000",
+                audience: "http://localhost:5000",
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(5),
+                signingCredentials: signingCredentials
+                );
+
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+            return Ok(new { Token = tokenString });
+
+        }
     }
 }

@@ -14,8 +14,16 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'shoppingcart', component: ShoppingCartContainerComponent },
-  { path: 'wishlist', component: WishlistContainerComponent },
+  {
+    path: 'shoppingcart',
+    component: ShoppingCartContainerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'wishlist',
+    component: WishlistContainerComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'product-details', component: ProductDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
@@ -23,7 +31,7 @@ const routes: Routes = [
   { path: 'add-product', component: AddProductComponent },
   { path: 'product/:id', component: ProductsComponent },
   { path: 'product-detail/:id', component: ProductDetailsComponent },
-  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: 'products', component: ProductsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'update-product/:id', component: UpdateProductComponent },
 ];
