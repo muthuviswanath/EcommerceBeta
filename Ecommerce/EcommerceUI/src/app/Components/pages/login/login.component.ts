@@ -45,9 +45,9 @@ export class LoginComponent implements OnInit {
                 .navigate(['/admin'])
                 .then(() => window.location.reload());
             } else {
-              this.route
-                .navigate(['/home'])
-                .then(() => window.location.reload());
+              this.route.navigate(['/home']).then(() => {
+                window.location.reload();
+              });
             }
           },
           error: (err: HttpErrorResponse) => (this.invalidLogin = true),

@@ -58,7 +58,9 @@ export class ProductsComponent implements OnInit {
           if (flag == 0)
             this.service.addCart(this.model).subscribe(() => {
               alert('Added to cart');
-              this.route.navigateByUrl('/products');
+              this.route
+                .navigateByUrl('/products')
+                .then(() => window.location.reload());
             });
         });
     }
