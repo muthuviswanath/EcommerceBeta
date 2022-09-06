@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit {
   SortbyParam: string = '';
   SortDirection: string = 'asc';
   searchText: string = '';
+  allProductList: any;
   constructor(
     private service: ProductService,
     private route: Router,
@@ -30,7 +31,12 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAllProducts().subscribe((res) => {
-      this.productList = res;
+      this.allProductList = res;
+      for (let i = 0; i < this.allProductList.length; i++) {
+        if (this.allProductList[i].quantity > 0) {
+          this.productList.push(this.allProductList[i]);
+        }
+      }
     });
   }
 

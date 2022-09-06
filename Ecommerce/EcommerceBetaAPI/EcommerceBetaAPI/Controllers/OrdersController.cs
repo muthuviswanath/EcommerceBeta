@@ -35,6 +35,7 @@ namespace EcommerceBetaAPI.Controllers
             new ordersDTO
             {
                 UserId = x.Userid,
+                Username = x.User.Username,
                 OrderId = x.Orderid,
                 OrderDate = x.Orderdate,
                 TotalPrice = x.TotalPrice,

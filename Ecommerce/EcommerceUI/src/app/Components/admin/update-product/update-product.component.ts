@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/Services/products/product.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class UpdateProductComponent implements OnInit {
   productData: any = {};
   constructor(
     private service: ProductService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private route: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +32,9 @@ export class UpdateProductComponent implements OnInit {
   update() {
     this.service
       .updateProduct(this.productData.productid, this.productData)
-      .subscribe();
+      .subscribe(() => {
+        alert('Product is updated successfully');
+        this.route.navigate(['/admin']);
+      });
   }
 }
