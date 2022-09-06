@@ -8,8 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
-  productList: IProducts[] = [];
-  IProducts: Array<any> = [];
+  // productList: IProducts[] = [];
+  // IProducts: Array<any> = [];
   id: any;
   Product: any;
   model: any;
