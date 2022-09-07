@@ -35,6 +35,7 @@ export class UpdateProfileComponent implements OnInit {
     // console.log(this.userData);
     this.service.updateuserdata(this.userID, this.userData).subscribe(() => {
       alert('Updated Profile Successfully!!');
+      this.route.navigate(['/home']);
     });
   }
 }

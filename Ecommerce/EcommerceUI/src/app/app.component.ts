@@ -12,13 +12,7 @@ export class AppComponent {
   router: any;
   user: any = '';
 
-  constructor(router: Router) {
-    // router.events.forEach((event) => {
-    //   if(event instanceof NavigationStart) {
-    //     this.showHeader = event.url !== "/admin";
-    //   }
-    // });
-  }
+  constructor(router: Router) {}
   isAdmin() {
     if (localStorage.getItem('userRole') == 'Admin') {
       return true;
