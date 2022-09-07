@@ -13,6 +13,7 @@ export class ShoppingCartService {
   getAllShoppingCartProductOfUser(userID: number) {
     return this.http.get(this.baseUrl + 'Carts/User/' + userID);
   }
+
   editShoppingCartProduct(cartId: number, data: any) {
     return this.http.put(this.baseUrl + 'Carts/' + cartId, data);
   }

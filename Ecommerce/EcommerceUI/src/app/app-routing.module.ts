@@ -10,6 +10,7 @@ import { ProductsComponent } from './Components/Products/products.component';
 import { HomeComponent } from './Components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UpdateProductComponent } from './Components/admin/update-product/update-product.component';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path: 'product-detail/:id', component: ProductDetailsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'home', component: HomeComponent },
-  {path:'update-product/:id',component:UpdateProductComponent},
+  { path: 'update-product/:id', component: UpdateProductComponent },
+  { path: 'admin', component: AdminDashboardComponent },
   { path: 'update-profile', component:UpdateProfileComponent },
   {path:'order-history',component:OrderHistoryComponent},
   {path:'contact',component:ContactComponent}

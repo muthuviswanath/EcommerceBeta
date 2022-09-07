@@ -1,8 +1,9 @@
-<p>add-product works!</p>
+<app-admin-header></app-admin-header>
+
 <div class="container">
     <form control="" id="contact"  class="form-group" [formGroup]="productForm">
-      <h3>Welcome Admin!!</h3>
-      <h4>Add Product</h4>
+      <h3 style="color: #5a88ca;">Welcome Admin!!</h3>
+      <label style="color: #5a88ca;">Add Product</label>
       <fieldset>
         <input
           placeholder="Product name"
@@ -41,7 +42,7 @@
           formControlName="productofferprice"
         />
       </fieldset>
-      <label>Product Description</label>
+      <label style="color: #5a88ca;">Product Description</label>
       <fieldset>
         <input placeholder="Display" type="text"  class="form__input" formControlName="display"/>
       </fieldset>
@@ -65,7 +66,7 @@
       <fieldset>
         <input placeholder="Security" type="text"  class="form__input" formControlName="security"/>
       </fieldset>
-  
+
       <fieldset>
         <input
           type="submit"

@@ -14,16 +14,14 @@ import { Filter } from 'src/app/Filter';
 })
 export class ProductsComponent implements OnInit {
   productList: IProducts[] = [];
-  prdData: any = {};
   model: any = {};
   shoppingCartList: any;
   wishlist: any;
-  IProducts: Array<any> = [];
-  Id: number;
-  product: any;
   filter: string = '';
   SortbyParam: string = '';
   SortDirection: string = 'asc';
+  searchText: string = '';
+  allProductList: any;
   constructor(
     private service: ProductService,
     private route: Router,
@@ -33,7 +31,12 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAllProducts().subscribe((res) => {
-      this.productList = res;
+      this.allProductList = res;
+      for (let i = 0; i < this.allProductList.length; i++) {
+        if (this.allProductList[i].quantity > 0) {
+          this.productList.push(this.allProductList[i]);
+        }
+      }
     });
   }
 
@@ -60,7 +63,10 @@ export class ProductsComponent implements OnInit {
           }
           if (flag == 0)
             this.service.addCart(this.model).subscribe(() => {
-              this.route.navigateByUrl('/products');
+              alert('Added to cart');
+              this.route
+                .navigateByUrl('/products')
+                .then(() => window.location.reload());
             });
         });
     }
@@ -86,13 +92,13 @@ export class ProductsComponent implements OnInit {
         }
         if (flag == 0) {
           this.service.addwishlist(this.model).subscribe(() => {
+            alert('Added to wishlist');
             this.route.navigateByUrl('/products');
           });
         }
       });
   }
 
-  searchText: string = '';
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
   }

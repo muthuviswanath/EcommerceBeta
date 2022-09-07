@@ -11,7 +11,7 @@
     <div class="row main-content bg-success text-center">
       <div class="col-md-4 text-center company__info">
         <span class="company__logo">
-          <h2><img src="assets/images/applogo.png" /></h2>
+          <h2><img src="assets/images/applogo.png" height="70px" /></h2>
         </span>
         <h4 class="company_title">Welcome!!</h4>
       </div>
@@ -28,7 +28,7 @@
               (ngSubmit)="login(loginForm)"
             >
               <div *ngIf="invalidLogin" class="alert alert-danger">
-                Invalid usernAME OR Password
+                User is not Registered, Please sign up
               </div>
               <div class="row">
                 <input

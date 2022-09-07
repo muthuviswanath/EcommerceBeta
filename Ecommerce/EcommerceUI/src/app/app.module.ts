@@ -1,5 +1,4 @@
 import { WishlistService } from 'src/app/Services/wishlist/wishlist.service';
-
 import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -47,10 +46,12 @@ import { Filter } from './Filter';
 import { sort } from './sort';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { AdminHeaderComponent } from './Components/admin-dashboard/admin-header/admin-header.component';
 
 import { OrderHistoryComponent } from './Components/admin/order-history/order-history.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { CommonModule } from '@angular/common';
 export function tokenGetter() {
   return localStorage.getItem('jwt');
 }
@@ -77,23 +78,27 @@ export function tokenGetter() {
     CarouselComponent,
     UpdateProfileComponent,
     OrderHistoryComponent,
-    ContactComponent
+    ContactComponent,
+    AdminDashboardComponent,
+    AdminHeaderComponent,
   ],
 
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     JwtModule.forRoot({
-      config:{
-        tokenGetter:tokenGetter,
-      allowedDomains:['localhost:5000'],
-      disallowedRoutes:[],
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5000'],
+        disallowedRoutes: [],
       },
     }),
- ],
+  ],
   providers: [
     ProductService,
     WishlistService,

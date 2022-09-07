@@ -61,8 +61,12 @@ export class ShoppingCartContainerComponent implements OnInit {
             this.shoppingCartService
               .deleteProductsFromShoppingCart(this.cart[i].cartId)
               .subscribe(() => {
+                alert(
+                  'Thank You ' +
+                    this.cart[i].username +
+                    ' for shopping with us!!'
+                );
                 window.location.reload();
-                
               });
           }
         });

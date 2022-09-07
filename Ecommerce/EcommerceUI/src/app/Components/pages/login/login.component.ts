@@ -1,14 +1,7 @@
-import { JwtHelperService } from '@auth0/angular-jwt';
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpHeaders,
-} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/Services/login/login.service';
-import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
-import { ILoginModel } from 'src/app/Interface/ILoginModel';
+import { NgForm } from '@angular/forms';
 import { IAuthenticatedResponse } from 'src/app/Interface/IAuthenticatedResponse';
 @Component({
   selector: 'app-login',
@@ -16,12 +9,7 @@ import { IAuthenticatedResponse } from 'src/app/Interface/IAuthenticatedResponse
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(
-    private service: LoginService,
-    private route: Router,
-    private http: HttpClient,
-    private jwtHelper: JwtHelperService
-  ) {}
+  constructor(private route: Router, private http: HttpClient) {}
   ngOnInit() {}
   invalidLogin: boolean;
   userid: any;
@@ -47,26 +35,23 @@ export class LoginComponent implements OnInit {
               });
             localStorage.setItem('jwt', token);
             this.invalidLogin = false;
-            this.route
-              .navigate(['/products'])
-              .then(() => window.location.reload());
+            if (
+              credentials.username === 'admin' &&
+              credentials.password === 'admin'
+            ) {
+              localStorage.setItem('userRole', 'Admin');
+
+              this.route
+                .navigate(['/admin'])
+                .then(() => window.location.reload());
+            } else {
+              this.route.navigate(['/home']).then(() => {
+                window.location.reload();
+              });
+            }
           },
           error: (err: HttpErrorResponse) => (this.invalidLogin = true),
         });
     }
   };
-  // checkLogin() {
-  //   this.formData = this.loginForm.value;
-  //   if (this.loginForm.valid) {
-  //     this.service.loginUser(this.loginForm.value).subscribe((res) => {
-  //       this.userData = res;
-  //       if (this.userData == null) {
-  //         this.route.navigateByUrl('/signup');
-  //       } else {
-  //         localStorage.setItem('userid', this.userData.userid);
-  //         this.route.navigateByUrl('/products');
-  //       }
-  //     });
-  //   }
-  // }
 }

@@ -12,11 +12,15 @@ export class UpdateProfileComponent implements OnInit {
   userForm: FormGroup;
   userID: any;
   userData: any = {};
-  constructor(private service: UserService, private formBuilder: FormBuilder,private route: Router) {}
+  constructor(
+    private service: UserService,
+    private formBuilder: FormBuilder,
+    private route: Router
+  ) {}
 
   ngOnInit(): void {
     this.userID = +localStorage.getItem('userid');
-   
+
     if (this.userID == 0) {
       this.route.navigateByUrl('/login');
     }
@@ -29,6 +33,9 @@ export class UpdateProfileComponent implements OnInit {
   }
   update() {
     // console.log(this.userData);
-    this.service.updateuserdata(this.userID, this.userData).subscribe();
+    this.service.updateuserdata(this.userID, this.userData).subscribe(() => {
+      alert('Updated Profile Successfully!!');
+      this.route.navigate(['/home']);
+    });
   }
 }
